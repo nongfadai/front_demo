@@ -1,0 +1,99 @@
+/* CSS Document */
+
+/*顶部指示区域*/
+.top {
+	position:fixed;
+	top:0px;
+	width:100%;
+	max-width:640px;
+	margin:0 auto;
+	
+	height: 46px;
+	line-height: 46px;
+	background: #0095e4;
+
+	font-size:14px;
+}
+.top_curr{
+	color:#fff;
+	cursor:pointer;
+}
+.top_logo {
+	background-image: url(../img/layout/top/logo_102_46.png);
+	background-repeat: no-repeat;
+	height:100%;
+	width:102px;
+	margin-left:10px;
+	float:left;
+	position:absolute;
+	left:0px;
+	transform:translateX(-120px);
+}
+.top_curr{
+	position:absolute;
+	left:0px;
+	top:0px;
+	opacity:0;
+}
+.top_gap {
+	border-left: 2px solid #fff;
+	height: 14px;
+	margin-left: 2px;
+	display: inline-block;
+	vertical-align: middle;
+}
+.top_title {
+	color: #fff;
+	height: 24px;
+	line-height: 24px;
+	padding-left: 4px;
+	font-size: 14px;
+	vertical-align: middle;
+}
+.top_balance {
+	padding-top:6px;
+	color: #fff;
+}
+.top_balance p {
+	height: 18px;
+	line-height: 18px;
+	text-align: right;
+	font-size: 12px;
+	overflow: hidden;
+}
+.top_balance p em {
+	font-size: 15px;
+}
+.top_div{
+	line-height:46px;
+	height:46px;
+	float:right;
+	padding-right:12px;
+	display:none;
+}
+.top a {
+	color: #fff;
+	text-decoration: none;
+	margin-left: 10px;
+}
+
+#btn_goBack{
+	font-size:24px;
+	display:block;
+	float:left;
+	padding-left:6px;
+}
+#back_mod{
+	font-size:16px;
+}
+
+#curr_mod{
+	font-size:20px;
+	position:absolute;
+	top:0px;
+	right:0px;
+	left:0px;
+	bottom:0px;
+	color:#fff;
+	text-align:center;
+}

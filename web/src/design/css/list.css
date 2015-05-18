@@ -1,0 +1,41 @@
+/* CSS Document */
+html, body {
+	font-size: 14px;
+	line-height: 1.8;
+	font-family: "Microsoft YaHei", Arial;
+	background: #fff;
+	color: #636363;
+	overflow-x: hidden;
+	background: #F0F3F5;
+	width: 100%;
+}
+body, form, ul, li, p, h1, h2, h3, h4, h5, h6, dd, dl, dt {
+	margin: 0;
+	padding: 0;
+}
+ul {
+	list-style: none;
+}
+img {
+	border: 0;
+}
+a {
+	text-decoration: none !important;
+	color: #369FD6;
+}
+a:hover {
+	color: #1D82B6;
+	text-decoration: underline;
+}
+em {
+	font-style: normal;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 100%;
+}
+p {
+	word-wrap: break-word
+}
+

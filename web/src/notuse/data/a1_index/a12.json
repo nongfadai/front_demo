@@ -1,0 +1,54 @@
+{
+	"bannerDTO": [{
+		"id": 75,
+		"type": 3,
+		"title": "微信注册送红包banner",
+		"content": null,
+		"imgPath": "http://image.xiaoniu88.com/image/image_upload/1421802978320.jpg",
+		"url": "",
+		"sortIndex": 3
+	}, {
+		"id": 73,
+		"type": 3,
+		"title": "微信项目banner",
+		"content": null,
+		"imgPath": "http://image.xiaoniu88.com/image/image_upload/1423450232868.jpg",
+		"url": "",
+		"sortIndex": 4
+	}, {
+		"id": 70,
+		"type": 3,
+		"title": "NBA微信端banner",
+		"content": null,
+		"imgPath": "http://image.xiaoniu88.com/image/image_upload/1425606838458.jpg",
+		"url": "",
+		"sortIndex": 5
+	}],
+	"indexPtdDTO": {
+		"id": 48585,
+		"productTitle": "安心牛D20150309-262",
+		"minAnnualRate": "13.00",
+		"maxAnnualRate": "13.20",
+		"line": "6",
+		"productAmount": "1,000,000.00",
+		"minAmount": "100.00",
+		"productSchedule": 17,
+		"productStatus": 2,
+		"isFull": "00",
+		"count": 20,
+		"makeArea": "-1",
+		"makeQuota": "0",
+		"tenderTimer": -8856,
+		"isDay": null,
+		"pType": "3",
+		"assClaim": null,
+		"activityType": null,
+		"rebateScale": null,
+		"showAnnualRate": null,
+		"showDeadline": null
+	},
+	"balance": 0.10,
+	"bonusCode": "2",
+	"bonusEarnings": 79200,
+	"bonusAmount": 992
+}

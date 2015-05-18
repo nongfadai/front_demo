@@ -1,0 +1,37 @@
+<div id="nfd-header" class="nfd-header">
+  <div class="icon-c">
+    <a href="index.html" target="_self" class="logo"><img src="img/logo.png" alt="logo"></a>
+    <!-- 未登录态 -->
+    <!--    <a href="login.html" target="_self" class="login right mr-m">登录</a>
+    <a href="register.html" target="_self" class="register right">注册</a>-->
+    <a href="javascript:void(0)" class="menu"></a>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<div id="nfd-header2"  class="nfd-header nfd-header2" style="display:none">
+  <div class="icon-c">
+    <a href="index.html" target="_self" class="logo"><img src="img/logo.png" alt="logo"></a>
+    <!-- 未登录态 -->
+    <!--    <a href="login.html" target="_self" class="login right mr-m">登录</a>
+    <a href="register.html" target="_self" class="register right">注册</a>-->
+    <a href="javascript:void(0)" class="menu"></a>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<!-- 登录态 -->
+<div id="menus" class="menus logined">
+  <a href="/user/logout.htm" target="_self">
+  <img src="img/header/logout.png" alt="logout">
+  <span> 退出 </span>
+  </a>
+  <a href="#" target="_self">
+  <img src="img/header/account.png" alt="account">
+  <span> 充值 </span>
+  </a>
+  <a href="project_list.html" target="_self">
+  <img src="img/header/invest.png" alt="invest">
+  <span> 投标 </span>
+  </a>
+</div>
+<div class="menu-mask" id="menu-mask">
+</div>

@@ -1,0 +1,21 @@
+/* CSS Document */
+
+/*	布局方案
+	控制命名空间  
+	con		con_out   con_inner   con_wrapper
+	top
+	banner
+	main
+	foot
+	nav
+	
+*/
+@import url(top.css);/*top 顶部*/
+@import url(banner.css);/*banner 运营位*/
+@import url(main.css);/*main 主体*/
+@import url(nav.css);/*nav 导航*/
+
+
+.con{
+	position:relative;
+}

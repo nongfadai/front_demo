@@ -1,0 +1,22 @@
+.fixed #nfd-header{
+	position:fixed!important;
+}
+.fixed #nfd-footer{
+	position:fixed!important;
+}
+
+
+.relative #nfd-header{
+	position:relative;
+}
+.relative #nfd-footer{
+	position:relative;
+}
+
+
+#nfd-header.relative {
+	position:absolute;
+}
+.nfd-header.relative {
+	position:absolute;
+}

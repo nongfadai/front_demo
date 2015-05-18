@@ -1,0 +1,136 @@
+@charset "utf-8";
+
+.bonus{
+	margin-top:6px;
+	margin-bottom:6px;
+}
+.bonus_img{
+	position:absolute;
+	top:10px;
+	left:10px;
+	width:80px;
+	height:80px;
+	line-height:80px;
+	text-align:center;
+	color:#e65737;
+	font-size:24px;
+	font-weight:bold;
+	color:#fff000;
+	background-image:url(../img/bonus/redbag_bg2.png);
+	background-repeat:no-repeat;
+	background-size:80px 80px; 
+}
+
+.bonus2 .bonus_status_1{
+	position:absolute;
+	top:0px;
+	right:42px;
+	width:3px;
+	height:8px;
+	background-color:#FFF;
+}
+.bonus2 .bonus_status_2{
+	position:absolute;
+	top:0px;
+	right:22px;
+	width:3px;
+	height:8px;
+	color:#e65737;
+	background-color:#FFF;
+}
+
+.bonus2 .bonus_status{
+	position:absolute;
+	top:8px;
+	right:9px;
+	width:50px;
+	padding:4px 0px;
+	line-height:20px;
+	text-align:center;
+	color:#e65737;
+	font-size:12px;
+	font-weight:bold;
+	
+	background-color:#FFF;
+	border-radius:0px;
+	border-radius:3px;
+}
+
+.bonus_status_1{
+	position:absolute;
+	top:0px;
+	right:42px;
+	width:3px;
+	height:8px;
+	background-color:#FFF;
+}
+.bonus_status_2{
+	position:absolute;
+	top:0px;
+	right:22px;
+	width:3px;
+	height:8px;
+	color:#e65737;
+	background-color:#FFF;
+}
+
+.bonus_status{
+	position:absolute;
+	top:8px;
+	right:9px;
+	width:50px;
+	padding:4px 0px;
+	line-height:20px;
+	text-align:center;
+	color:#e65737;
+	font-size:12px;
+	font-weight:bold;
+	
+	background-color:#ccc;
+	border-radius:0px;
+	border-radius:3px;
+}
+
+.bonus_top{
+	background-color:#fff;
+	height:70px;
+	color:#fff;
+	padding-left:60px;
+	position:relative;
+}
+.bonus_amt{
+	padding-top:6px;
+	padding-right:12px;
+	font-size:24px;
+	line-height:36px;
+	font-weight:bold;
+	text-align:left;
+}
+.bonus_bottom{
+/*	background-color:#ffffff;
+*/	color:#aeaeae;
+	height:32px;
+	border-bottom:2px solid #e1e4e0;
+	border-bottom-left-radius:6px;
+	border-bottom-right-radius:6px;
+	line-height:32px;
+}
+
+.bonus_bottom .bonus_extra{
+	float:left;
+	padding:0 12px;
+}
+.bonus_bottom .bonus_experis{
+	float:right;
+	padding:0 12px;
+}
+.bonus_bottom .bonus_extra{
+	float:right;
+	padding:0 12px;
+}
+.bonus_bottom .bonus_experis{
+	float:left;
+	padding:0 12px;
+}
+
+

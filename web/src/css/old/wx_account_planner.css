@@ -1,0 +1,15 @@
+@charset "utf-8";
+.wx_planner_tj p i{
+	color:#ff864a;
+}
+.wx_planner_ewm{
+	height: 200px;
+}
+
+.wx_planner_ewm p{
+	line-height:20px;
+}
+
+.wx_btn_iknow{
+	margin-top:170px;
+}

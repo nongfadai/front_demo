@@ -1,0 +1,16 @@
+/* CSS Document */
+
+/*	布局方案
+	控制命名空间  
+	con		con_out   con_inner   con_wrapper
+	top
+	banner
+	main
+	foot
+	nav
+	
+*/
+
+.con{
+	position:relative;
+}

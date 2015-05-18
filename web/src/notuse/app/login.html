@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>小牛在线</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="css_old/old/wx_common.css">
+<link rel="stylesheet" type="text/css" href="css_old/old/wx_login.css">
+</head>
+<body>
+<div class='wx_top'> <a class="wx_top_logo" href="index.html"> </a> <span class="wx_top_gap"></span> <span class='wx_top_title'>登录</span> </div>
+<div class="wx_login_box">
+  <form id="loginForm" autocomplete="off">
+    <div class="input_box">
+      <input type="text" style="line-height:normal;"  placeholder="手机号码/用户名/邮箱" id="username" maxlength="16" name="username" class="wx_icon_user input_text" tabindex="1" />
+    </div>
+    <div class="input_box">
+      <input type="password"  style="line-height:normal;" placeholder="输入登录密码" id="password" maxlength="20" name="password" class="wx_icon_pw input_text" tabindex="2" />
+    </div>
+    <div  class="wx_login_check_code">
+      <input type="tel" style="line-height:normal;" placeholder="请输入验证码" id="code" name="code" maxlength="4" class="input_text" value=""  tabindex="3"/>
+      <span class="vcode"> <img id="codeNum" class="verifyImg" style="width:109px;height:45px;" title="换一张" alt="验证码" /> </span> </div>
+    <div id="error-box" class="wx_tip"></div>
+    <a href="javascript:void(0);" id="wx_loginSubmit" tabindex="4" class="btn_wap wx_btn_orange"> 立即登录 </a>
+    <div class="xn_login_blow">
+    	<a class="fpwd" href="/weixin/forgetpassword"> 忘记登录密码？ </a>
+        <span class="xn_noAccount">还没有账户？ <a class="wx_reg_now" href="register.html"> 立即注册 </a> </span>
+    </div>
+  </form>
+</div>
+
+<script type="text/javascript" src="lib/zepto/zepto.min.js"></script> 
+<script type="text/javascript" src="lib/pwd/security.js"></script> 
+<script type="text/javascript" src="js/old/wx_login.js"></script>
+
+</body>
+</html>

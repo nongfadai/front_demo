@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>农发贷 nongfadai.com - 农业垂直P2P第1品牌</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no,address=no,email=no">
+<meta name="mobileOptimized" content="width">
+<meta name="handheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link ref="shortcut icon" type="image/x-icon" href="favicon.ico">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+#parse("header.vm")
+<div id="scroller">
+  <div id="nfd-touch">
+    <div id="nfd-investments" class="nfd-tab">
+      <div class="hd overflow-hidden">
+        <a href="javascript:void(0)" data-tab="Repayment" class="Repayment selected"> 未使用 </a>
+        <a href="javascript:void(0)" data-tab="InSubscribe" class="InSubscribe"> 已兑现 </a>
+        <a href="javascript:void(0)" data-tab="Finished" class="Finished"> 已过期 </a>
+      </div>
+      <div class="bd">
+        <div class="Repayment selected tab">
+           #foreach($obj in $data.notuse)
+             <div class="bonus bonus_yellow">
+                <div class="bonus_top">
+                  <div class="bonus_img bonus_color">$obj.amt</div>
+                  <div class="bonus_info">投资$obj.invest元返现$obj.amt元</div>
+                  <div class="bonus_experis">有效期至$obj.valdate</div>
+                  <div class="bonus_extra">使用说明  $data.notuse.size()</div>
+                </div>
+                <div class="bonus_bottom">
+                  <h3>使用说明：</h3>
+                  <p>1.用户在有效期内完成单笔<span class="red">
+                    &gt;=$obj.invest</span>元的投资（仅限3个月【含】以上的定期产品）即可返现$obj.amt元；</p>
+                  <p>2. 返现金额将于投资后5个工作日内发放至用户小牛在线投资账户中；</p>
+                  <p>3. 如有疑问详询平台在线客服或拨打全国热线<span class="red">400 777 1268</span>。</p>
+                </div>
+              </div>
+          #end
+        </div>
+        <div class="InSubscribe tab">
+          <div class="bonus bonus_used">
+            <div class="bonus_top">
+              <div class="bonus_img bonus_color">10</div>
+              <div class="bonus_info1">种植贷2013211</div>
+              <div class="bonus_invest">投资金额：100元</div>
+              <div class="bonus_experis">兑现时间：2015.5.15</div>
+            </div>
+          </div>
+        </div>
+        <div class="Finished tab">
+          <div class="bonus bonus_used">
+            <div class="bonus_top">
+              <div class="bonus_img bonus_color">10</div>
+              <div class="bonus_info">投资100元返现10元</div>
+              <div class="bonus_experis">过期时间：2015.5.15</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+    </div>
+  </div>
+</div>
+#parse("footer.vm")
+<script src="js/libs/zepto/zepto.js"></script>
+<script src="js/libs/swipe/swipe.js"></script>
+<script src="js/libs/iscroll/iscroll.js"></script>
+<script src="js/MD5.js"></script>
+<script src="js/libs/requirejs/require.js"></script>
+<script src="js/mod/bonus.js"></script>
+</body>
+</html>

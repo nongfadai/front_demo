@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no,address=no,email=no">
+<meta name="mobileOptimized" content="width">
+<meta name="handheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?2015050501" />
+<title>农发贷</title>
+
+<style type="text/css">
+.uninvested {
+	background-color: #fff;
+	text-align: center;
+	border: 1px solid #eee;
+	margin: 20px;
+	height: 100px;
+}
+.uninvested .prompt {
+	color: #000;
+	margin-top: .8em;
+}
+</style>
+</head>
+<body>
+<div id="nfd-header" class="nfd-header">
+    <div class="icon-c">
+		<span class="title">我要提现</span>
+        <a href="javascript:void(0)" class="menu">
+            </a>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div id="nfd-header2" class="nfd-header nfd-header2">
+    <div class="icon-c">
+		<span class="title">我要提现</span>
+        <a href="javascript:void(0)" class="menu">
+            </a>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- 登录态 -->
+<div id="menus" class="menus logined">
+	<a href="/user/logout.htm"  target="_self">
+		<img src="/img/header/logout.png" alt="logout" />
+		<span>
+			退出
+		</span>
+	</a>
+	<a href="/user/account/recharge.html" target="_self" >
+		<img src="/img/header/account.png" alt="account" />
+		<span>
+			充值
+		</span>
+	</a>
+	<a href="/project_list.html"  target="_self">
+		<img src="/img/header/invest.png" alt="invest" />
+		<span>
+			投标
+		</span>
+	</a>
+	<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<div class="menu-mask" id="menu-mask"></div>
+		<div id="scroller">
+  <div id="nfd-touch">
+    <div class="uninvested">
+      <div class="wording"> 抱歉,您暂未绑定银行卡,请前往(www.nongfadai.com)进行绑定!<br>
+        如有疑问,请致电客服4008-2255-38 </div>
+    </div>
+    </div>
+</div>
+<div class="clear"></div>
+<!--B 底部-->
+<div id="nfd-footer"><!--具体激活哪个菜单  要增加一个变量来控制-->
+    <a href="/index.html" class="menu">
+        <img src="/img/homepage.png" />
+        <div>主页</div>
+    </a>
+    <a href="/project_list.html" class="menu">
+        <img src="/img/investment.png" />
+        <div>投资理财</div>
+    </a>
+    <a href="/user/account/index.html" class="menu current">
+        <img src="/img/account_current.png" />
+        <div>我的账户</div>
+    </a>
+    <a href="/about_us.html" class="menu">
+        <img src="/img/about.png" />
+        <div>关于我们</div>
+    </a>
+</div>
+<!--E 底部--><script type="text/javascript">
+	var basepath="http://192.168.1.59:18888/";
+</script>
+<script src="/js/libs/zepto/zepto.js"></script>
+<script src="/js/libs/iscroll/iscroll.js"></script>
+<script src="/js/MD5.js"></script>
+<script src="/js/libs/kissy/seed.js" data-config="{combine:false,debug:false}"></script>
+<script src="/js/module/config.js"></script>
+<script src="/js/module/common.js"></script>
+
+
+
+<!-- <script src="/js/module/withdraw.js"></script> -->
+<script type="text/javascript">
+	var wait = 60;
+	var min = 200;
+	var max = 499900000;
+	window.onload=function(){
+		$("#nfd-withdraw-c input").focus(function(){
+			var msg_wrapper = $(this).parent().find("div");
+			if(msg_wrapper.css("display") == 'block'){
+				msg_wrapper.hide();
+			}
+			if($("#allErrMsg").css("display") == 'block'){
+				$("#allErrMsg").hide();
+			}
+		});
+	}
+	/**
+	 * 获取短信验证码
+	 */
+	 function getSmsCode(object){
+		var amount_val = $("#amount");
+		var txpwd_val = $("#txpwd");
+		if(!amount_val.val()){
+			amount_val.parent().find(".msg-wrapper").html("<p class=\"auth-msg auth-error\">提现金额不能为空.</p>").show();
+			return false;
+		}
+		/*if(!txpwd_val.val()){
+			txpwd_val.parent().find(".msg-wrapper").html("<p class=\"auth-msg auth-error\">交易密码不能为空.</p>").show();
+			return false;
+		} */
+		var data3={"type":"band","emil":"","phone":$("#phone").val()};
+		$.ajax({
+			type:"post",
+			dataType:"html",
+			url:"/regist/send.htm",
+			data:data3,
+			success:function(data){
+				var ct = eval('('+data+')');
+				if(ct[0].num==1){//成功
+					wait=10;
+					sendclick6();
+				}else{//失败
+					var objectMsg = $(object).parent().find(".msg-wrapper");
+					objectMsg.html('<p class="auth-msg auth-error">'+ct[0].msg+'</p>');
+					objectMsg.show();
+				}
+			}
+		});
+	}
+	 /**
+		 * 倒计时60秒
+		 */
+		 function sendclick6(){
+			var cap = $("#nfd-mobile-code");
+			if (wait == 0) {
+				cap.text("获取验证码");
+				cap.removeClass("wait");
+				cap.attr("onclick","getSmsCode()");
+				wait = 10;
+			} else {
+				cap.addClass("wait");
+				cap.text("已发送("+wait+")");
+				cap.attr("onclick","");
+				wait--;
+				setTimeout(function() {
+					sendclick6();
+				},
+				1000);
+			}
+		}
+	function tx(){
+		if(validate()){
+			var jypwd = $("#nfd-withdraw-c #txpwd");
+			var cardId = $("#nfd-withdraw-c #cardId");
+			var amount = $("#nfd-withdraw-c #amount");
+			var code = $("#nfd-withdraw-c #code");
+			//$("#nfd-withdraw-form-s #withdrawPsd").val(hex_md5(jypwd.val()));
+			$("#nfd-withdraw-form-s #cardId").val(cardId.val());
+			$("#nfd-withdraw-form-s #amount").val(amount.val());
+			$("#nfd-withdraw-form-s #code").val(code.val());
+			$("#nfd-withdraw-form-s").submit();
+		}
+	}
+	function validate(){
+		var validate = true;
+		$("#nfd-withdraw-c input").each(function(){
+			var formInput = $(this);
+			var formInputValue = formInput.val();
+			if(typeof(formInput.attr("placeholder"))!="undefined"){
+				var msg_wrapper = formInput.parent().find(".msg-wrapper");
+				var errMsg = "";
+				var id = formInput.attr("id");
+				if(!formInputValue){
+					errMsg = formInput.attr("required-msg");
+				}else{
+					if(id=="amount"){
+						if(parseFloat(formInputValue)<parseFloat(min)||parseFloat(formInputValue)>parseFloat(max)){
+							errMsg = "提现金额不能低于"+min+"元，且不能高于" + max / 10000+ "万元";
+						}
+					}else if(id=="code"&&formInputValue.length!=6){
+						errMsg = "验证码长度有误";
+					}
+				}
+				if(errMsg){
+					msg_wrapper.html('<p class="auth-msg auth-error">'+errMsg+'.</p>');
+					msg_wrapper.show();
+					validate = false;
+					return validate;
+				}
+			}
+		});
+		return validate;
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>我的账户-小牛在线</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="css_old/old/wx_common.css">
+<link rel="stylesheet" type="text/css" href="css_old/old/wx_account.css">
+</head>
+<body>
+<div class='wx_top'> <a class="wx_top_logo" href="index.html"> </a> <span class="wx_top_gap"></span> <span class='wx_top_title'>我的账户</span>
+<div class="wx_top_btn wx_top_loginout"><a class="" href="/weixin/logout">安全退出</a></div>
+</div>
+<div class="wx_account">
+	<div class="wx_list_tab">
+      <a href="account.html" class="select" id="wx_tab_axn"><span><em>账户总览</em></span></a>
+      <a href="/weixin/account/send/invest" id="wx_tab_sanbiao"><span><em>我的投资</em></span></a>
+    </div>
+    <h3 class="wx_account_title">我的资料</h3>
+    <div class="wx_info" id="container">
+        <div class="wx_loading"></div>
+    </div>
+</div>
+<div class="foot">
+    <div class="foot_nav_list">
+        <span class="foot_nav"><a href="index.html" class="foot_nav nav_index"><i></i><em>首页</em></a></span>
+        <span class="foot_nav"><a href="list.html#axn" class="foot_nav nav_invest"><i></i><em>我要投资</em></a></span>
+        <span class="foot_nav"><a href="account.html" class="foot_nav nav_account nav_account_cur"><i></i><em>我的账户</em></a></span>
+        <span class="foot_nav"><a href="aboutus.html" class="foot_nav nav_about"><i></i><em>关于小牛</em></a></span>
+    </div>
+</div>
+<!--内容模板-->
+<script id="pageTmpl" type="text/x-dot-template">
+<%	var data = it || {};%>
+<%
+	var realname="",idNo="",mobile="",email="";
+	if(data.status==0){
+		if(data.data){
+			realname = 	data.data.realName || "未填写";
+			idNo = data.data.idNo || "未填写";
+			email = data.data.email || "未填写";
+			mobile = data.data.mobile  || "未填写";
+		}
+	}
+%>
+<div class="wx_account_table2 wx_info_list">
+	<p><span>真实姓名</span><i><%=realname%></i></p>
+	<p><span>身份证号</span><i><%=idNo%></i></p>
+	<p><span>常用邮箱</span><i><%=email%></i></p>
+	<p><span>绑定手机</span><i><%=mobile%></i></p>
+</div>
+<%if(!data.data.idNo){%>	
+	<a href="/weixin/resources/weixin/account_bank_auth.html" class="wx_btn_org ttn_act_btn">账户安全认证</a>
+<%}%>
+</script>
+
+<script type="text/javascript" src="lib/zepto/zepto.min.js"></script>
+<script type="text/javascript" src="lib/doT/doT.min.js"></script>
+<script type="text/javascript" src="js/old/wx_common.js"></script>
+<script type="text/javascript">
+$(function(){
+	//数据路径
+	var requestData = {
+		tpl:$("#pageTmpl").html(),
+		data:"/weixin/account/info"
+	};
+	init();
+	//初始化
+	function init(){
+		var $container = $("#container");
+		//请求模板和数据，并调用回调
+		$.render({type:"POST",tpl:requestData.tpl,data:requestData.data},function(data,html){
+			$container.html(html);
+		});
+	}
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,220 @@
+@charset "utf-8";
+
+
+#nfd-investments{
+	margin-top:20px;
+	margin-left:20px;
+}
+#nfd-touch{
+	margin-top:40px;
+	position:relative;
+	min-height:600px;
+}
+
+#nfd-investments hd{
+	width:640px;
+}
+
+#my_tab_1{
+	width:120px;
+}
+#my_tab_2{
+	width:120px;
+}
+#my_tab_3{
+	width:120px;
+}
+/**
+ * tab样式
+ */
+.nfd-tab .hd {
+	font-size: 14px;
+	margin-bottom: 10px;
+	height:40px;
+}
+
+.nfd-tab .hd a {
+	float: left;
+	width: 34%;
+	text-align: center;
+	background-color: #fff;
+	color: #707070;
+	height: 32px;
+	line-height: 30px;
+	
+	border: 1px solid #28a8ff;
+
+	box-sizing:border-box;
+}
+.nfd-tab .hd a:first-child {
+	width: 33%;
+	border-top-left-radius:5px;
+	border-bottom-left-radius:5px;
+	border-left:1px solid #28a8ff;
+	border-right:none;
+}
+
+.nfd-tab .hd a:last-child {
+	width: 33%;
+	border-top-right-radius:5px;
+	border-bottom-right-radius:5px;
+	border-left:none;
+	border-right:1px solid #28a8ff;
+}
+
+.nfd-tab .hd a.selected {
+	background: #28a8ff;
+	color: #fff;
+}
+
+.nfd-tab .bd .tab {
+	display: none;
+}
+
+.nfd-tab .bd .tab.selected {
+	display: block;
+}
+
+
+@charset "utf-8";
+
+.tab{
+	vertical-align:text-top;
+}
+/*bonus 我的红包相关样式*/
+.bonus{
+	margin-bottom:12px;
+	margin-right:24px;
+	background-color:#fff;
+	border:1px solid #ccc;
+	border-radius:5px;
+	overflow:hidden;
+	width:340px;
+	margin-bottom:12px;
+	vertical-align:text-top;
+	display:inline-block;
+
+}
+.bonus .bonus_top{
+	background-color:#fff;
+	height:82px;
+	color:#333;
+	padding-left:96px;
+	position:relative;
+}
+.bonus .bonus_img{
+	position:absolute;
+	top:0px;
+	left:8px;
+	width:80px;
+	height:80px;
+	line-height:100px;
+	text-align:center;
+	color:#fff000;
+
+	color:#e65737;
+	color:#fff;
+	
+	font-size:24px;
+	font-weight:bold;
+	background-image:url(../img/bonus/redbag_bg3.png);
+	background-repeat:no-repeat;
+	background-position:top center;
+	background-size:80px 80px;
+}
+
+
+
+.bonus .bonus_amt{
+	padding-top:6px;
+	padding-right:12px;
+	font-size:24px;
+	line-height:36px;
+	font-weight:bold;
+	text-align:left;
+}
+
+
+
+.bonus .bonus_bottom{
+	color:#666;
+	line-height:20px;
+	border-top:1px solid #ccc;
+	padding: 10px 12px;
+	display:none;
+}
+
+.bonus_info{
+	padding-top:16px;
+	font-size:16px;
+	padding-bottom:16px;
+}
+.bonus_info1{
+	padding-top:12px;
+	font-size:14px;
+	padding-bottom:4px;
+}
+.bonus_invest{
+	line-height:16px;
+	padding-bottom:2px;
+}
+
+.bonus .bonus_experis{
+	color:#9c9c9c
+}
+.bonus .bonus_extra{
+	position:absolute;
+	top:56px;
+	right:12px;
+	color:#2d81fe;
+	cursor:pointer;
+}
+
+.bonus_used.bonus .bonus_img{
+	background-image:url(../img/bonus/redbag_bg3_gray.png);
+	color:#dedede;
+}
+
+.my_bonus_num{
+	display:inline-block;
+	background-color:#F00;
+	color:#FFF;
+	width:20px;
+	text-align:center;
+	line-height:20px;
+	font-size:12px;
+	border-radius:20px;
+	margin-left:8px;
+}
+
+
+.nfd-tab2 .hd{
+	position:absolute;
+	right:-1px;
+	top:-34px;
+}
+
+.nfd-tab2 .hd a{
+	width:100px;
+	height:32px;
+	line-height:32px;
+	display:block;
+	float:left;
+	text-align:center;
+	border:1px solid #ebebeb;
+	background-color:#fafaf9;
+}
+
+.nfd-tab2 .hd a:first-child{
+	border-top-left-radius:3px;
+	border-right:none;
+}
+
+.nfd-tab2 .hd a:last-child{
+	border-left:none;
+}
+
+.nfd-tab2 .hd a.selected{
+	background-color:#fff;
+	border-bottom-color:#fff;
+}

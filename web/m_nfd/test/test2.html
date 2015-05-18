@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>测试input的padding效果</title>
+<!--测试input的padding-->
+<style>
+.input_div{
+	position:relative;
+	padding-top:20px;
+	background-color:#06F;
+	width:200px;
+}
+.txt{
+	width:100%;
+	padding-left:40px;
+	padding-right:40px;
+	box-sizing:border-box;
+}
+.icon1{
+	position:absolute;
+	width:40px;
+	height:100%;
+	left:0px;
+	top:0px;
+	background-color:rgba(255,0,0,0.5);
+}
+.icon2{
+	position:absolute;
+	width:40px;
+	height:100%;
+	right:0px;
+	top:0px;
+	background-color:rgba(255,0,0,0.5);
+}
+</style>
+</head>
+
+<body>
+<div class="form">
+    <div class="a1">
+        <div class="input_div">
+            <div class="icon1"></div>
+            <input type="text" class="txt">
+            <div class="icon2"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

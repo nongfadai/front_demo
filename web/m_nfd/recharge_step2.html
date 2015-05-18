@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no,address=no,email=no">
+<meta name="mobileOptimized" content="width">
+<meta name="handheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?2015050506" />
+<title>农发贷</title>
+</head>
+<body>
+<div id="nfd-header" class="nfd-header">
+  <div class="icon-c">
+    <span class="title">我要充值</span>
+    <a href="javascript:void(0)" class="menu">
+    </a>
+    <div class="clearfix"></div>
+  </div>
+</div>
+<!-- 登录态 -->
+<div id="menus" class="menus logined">
+  <a href="/user/logout.htm"  target="_self">
+  <img src="/img/header/logout.png" alt="logout" />
+  <span> 退出 </span>
+  </a>
+  <a href="/user/account/recharge.html" target="_self" >
+  <img src="/img/header/account.png" alt="account" />
+  <span> 充值 </span>
+  </a>
+  <a href="/project_list.html"  target="_self">
+  <img src="/img/header/invest.png" alt="invest" />
+  <span> 投标 </span>
+  </a>
+  <div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<div class="menu-mask full_mask" id="menu-mask"></div>
+<div id="scroller">
+  <div id="nfd-touch">
+    <!-- 正常充值界面 -->
+    <form>
+      <div class="recharg_tip1">请选择要开通认证支付的银行卡</div>
+      <div id="nfd-account-c">
+        <div class="account-card">
+          <div class="bank bank-2-ICBC left"></div>
+          <div class="left">
+            <div>工商银行</div>
+            <div class="secondary">955*************7715</div>
+          </div>
+          <input type="radio"  name="card_radio1" class="right card-radio" />
+        </div>
+        <div class="account-card disable">
+          <div class="bank bank-2-BOC left"></div>
+          <div class="left">
+            <div>中国银行</div>
+            <div class="secondary">620*************7279</div>
+            <div class="recharg_tip3">此卡暂不支持认证支付</div>
+          </div>
+          <input type="radio" name="card_radio1" class="right card-radio" />
+        </div>
+        <div class="account-card">
+          <div class="bank bank-2-ICBC left"></div>
+          <div class="left">
+            <div>工商银行</div>
+            <div class="secondary">622*************9760</div>
+          </div>
+          <input type="radio" name="card_radio1"  class="right card-radio" />
+        </div>
+        <div class="account-card other_card">
+          <div class="bank  left"></div>
+          <div class="left">
+            <div>使用其他银行卡</div>
+          </div>
+          <input type="radio" name="card_radio1"  class="right card-radio" />
+        </div>
+        <!-- 				<label class="account-card"> -->
+        <!-- 						<div class="left"> -->
+        <!-- 						</div> -->
+        <!-- 							<input type="radio" class="right card-radio" /> -->
+        <!-- 					</label> -->
+        <div class="secondary font-12 mt-m ml-m" id="singleRecharge"></div>
+        <div id="nfd-user-reg-form-c" class="bank_card_more">
+          <div class="input-div captcha-c">
+            <input id="code" type="tel" placeholder="请输入验证码" name="code" required required-msg="验证码不可为空">
+            <div id="captcha-code"> 获取验证码 </div>
+          </div>
+          <div id="reg-mobile-voice-code-con1" class="msg-wrapper hide">
+            <p class="auth-msg auth-error"></p>
+          </div>
+          <div id="reg-mobile-voice-code-con" class="msg-wrapper hide">
+            <p id="reg-mobile-voice-code-msg" class="auth-msg auth-hint">如果您未收到短信，请<span id="get_voice_code" class="get_voice_code">点此获取语音验证码</span></p>
+          </div>
+        </div>
+      </div>
+      <div id="nfd-recharge-c">
+        <div class="recharge">
+          <button class="btn-primary big" id="rechargeBtn"> 下一步 </button>
+        </div>
+        <div class="wording padding_10 font-12"> 温馨提示：移动端充值使用更加安全的认证支付功能，您尚未开通认证支付。您在农发贷系统已经设置了提现银行卡。为了保障您的资金安全，一旦开通认证支付，后续充值和提现都只能使用该银行卡，农发贷系统将禁止使用其他的银行卡提现。 </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div class="clear"></div>
+<!--B 底部-->
+<div id="nfd-footer"><!--具体激活哪个菜单  要增加一个变量来控制-->
+  <a href="/index.html" class="menu">
+  <img src="/img/homepage.png" />
+  <div>主页</div>
+  </a>
+  <a href="/project_list.html" class="menu">
+  <img src="/img/investment.png" />
+  <div>投资理财</div>
+  </a>
+  <a href="/user/account/index.html" class="menu current">
+  <img src="/img/account_current.png" />
+  <div>我的账户</div>
+  </a>
+  <a href="/about_us.html" class="menu">
+  <img src="/img/about.png" />
+  <div>关于我们</div>
+  </a>
+</div>
+<script src="js/libs/zepto/zepto.js"></script>
+<script src="js/libs/swipe/swipe.js"></script>
+<script src="js/libs/iscroll/iscroll.js"></script>
+<script src="js/MD5.js"></script>
+<script src="js/libs/requirejs/require.js"></script>
+<script src="js/mod/recharge_card_more.js"></script>
+</body>
+</html>

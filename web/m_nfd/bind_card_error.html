@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no,address=no,email=no">
+<meta name="mobileOptimized" content="width">
+<meta name="handheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?2015050506" />
+<title>农发贷</title>
+
+</head>
+<body>
+<div id="nfd-header" class="nfd-header">
+    <div class="icon-c">
+		<span class="title">绑定银行卡</span>
+        <a href="javascript:void(0)" class="menu">
+            </a>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- 登录态 -->
+<div id="menus" class="menus logined">
+	<a href="/user/logout.htm"  target="_self">
+		<img src="/img/header/logout.png" alt="logout" />
+		<span>
+			退出
+		</span>
+	</a>
+	<a href="/user/account/recharge.html" target="_self" >
+		<img src="/img/header/account.png" alt="account" />
+		<span>
+			充值
+		</span>
+	</a>
+	<a href="/project_list.html"  target="_self">
+		<img src="/img/header/invest.png" alt="invest" />
+		<span>
+			投标
+		</span>
+	</a>
+	<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<div class="menu-mask" id="menu-mask"></div>
+		<div id="scroller">
+  <div id="nfd-touch">
+    <div id="nfd-channel-banks">
+      <form id="nfd-channel-form-bank" method="post" action="/pay/lianlian/chargeServlet.htm">
+        <input type="hidden" name="user_id" id="user_id" value="13581"/>
+        <input type="hidden" name="no_agree" id="no_agree"/>
+        <div>
+          <input id="acct_name" name="acct_name" type="text" value="李松苏" placeholder="请输入真实姓名" name="accountName" class="radius-top" disabled="disabled" required required-msg="真实姓名不能为空" nfdrealname />
+          <div class="msg-wrapper" style="display:none;"></div>
+        </div>
+        <div>
+          <input id="id_no"  name="id_no" type="text" value="362201198511134439" disabled="disabled" placeholder="请输入身份证号" name="accountID" required required-msg="身份证号不能为空" cnidcard />
+          <div class="msg-wrapper" style="display:none;"></div>
+        </div>
+        <!-- 银行卡 -->
+        <div id="select-bank-name" class="relative">
+          <input id="bankName" name="bankName" placeholder="请选择发卡银行" readonly class="btn">
+          <input id="bank_code" name="bank_code" type="hidden" value="CMB" disabled="disabled" max="" required-msg="请选择发卡银行"/>
+<img src="/img/arrow_down.png" class="select-bank-icon" />
+<div class="msg-wrapper" style="display:none;"></div>
+        </div>
+        <div id="bank_list" class="hide">
+          <div data-bankcode="">请选择</div>
+        </div>
+        <div>
+          <input type="tel" id="card_no" name="card_no" value="6225887841822295" readonly="true"  onkeyup="value=value.replace(/\D/g,'')" maxlength="19" placeholder="请输入银行卡号" required required-msg="银行卡号不能为空" number="true" number-msg="银行卡号必须是数字">
+          <div class="msg-wrapper" style="display:none;"></div>
+        </div>
+        <!-- 充值金额 -->
+        <div>
+          <input type="tel" id="money_order" name="money_order" class="mt-m last-child radius-top radius-bottom" onkeyup="value=value.replace(/\D/g,'')" placeholder="请输入充值金额" money required required-msg="充值金额不能为空或零" ge="200" ge-msg="充值金额不能低于200元" le="200000" le-msg="充值金额不能高于20万元" />
+          <div class="secondary font-12 mt-m ml-m"><span id="singleRecharge"></span><span id="b_v" style="font-weight:bold"></span></div>
+          <div class="msg-wrapper" style="display:none;"></div>
+        </div>
+        <!-- 同意协议 -->
+        <div class="contact-c">
+          <input id="nfd-contract-agree" type="checkbox" name="nfd-contract-agree" checked="checked" required required-msg="需同意农发贷快捷支付协议">
+          <label for="nfd-contract-agree"> 我同意 </label>
+          <a id="nfd-contract-btn" class="blue" href="javascript:void(0)"> 认证支付协议 </a>
+        </div>
+        <div class="msg-wrapper" >
+          <p class="auth-msg auth-error">
+            姓名不能为空</p>
+        </div>
+        <div class="next-btn">
+          <button id="add-bank" class="btn-primary big" type="button" role="button" aria-disabled="false" tabindex="0" hidefocus="true" aria-pressed="false" onclick="cz()"> 下一步 </button>
+        </div>
+      </form>
+      <input type="hidden" id="min" value="1"/>
+    </div>
+    <div id="Contract" aria-labelledby="ContractLabel" style="display:none">
+      <div class="modal-header">
+        <h3 id="ContractLabel"> 用户绑定快捷支付银行卡声明书 </h3>
+      </div>
+      <div class="modal-body">
+        <p>1、 每位用户只能绑定一张银行卡作为快捷支付结算卡（以下称之为“快捷结算卡”），请选择常用银行卡进行绑定。一旦绑定后，只能提现到快捷结算卡。 </p>
+        <p> 2、 提现时，如已绑定快捷结算卡，不需重新绑定；如尚未绑定，请先绑定快捷结算卡作为提现银行卡。同时，其他已绑定的提现银行卡将失效。提现申请时选择非快捷结算卡，提现将失败。 </p>
+        <p>3、 为保障您账户资金的安全，如需更换绑定其他银行卡，农发贷需审核您的资料。请联系农发贷客服提供相关资料。客服确认信息及身份后，解除原绑定关系，用户可从前台页面自行再次发起绑定快捷结算卡操作。 </p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer" id="back_register">
+  <button data-dismiss="modal"  aria-hidden="true" class="btn btn-primary"> 返回 </button>
+</div>
+<div class="clear"></div>
+<!--B 底部-->
+<div id="nfd-footer"><!--具体激活哪个菜单  要增加一个变量来控制-->
+    <a href="/index.html" class="menu">
+        <img src="/img/homepage.png" />
+        <div>主页</div>
+    </a>
+    <a href="/project_list.html" class="menu">
+        <img src="/img/investment.png" />
+        <div>投资理财</div>
+    </a>
+    <a href="/user/account/index.html" class="menu current">
+        <img src="/img/account_current.png" />
+        <div>我的账户</div>
+    </a>
+    <a href="/about_us.html" class="menu">
+        <img src="/img/about.png" />
+        <div>关于我们</div>
+    </a>
+</div>
+<!--E 底部--><script type="text/javascript">
+	var basepath="http://192.168.1.21:80/";
+</script>
+<script src="/js/libs/zepto/zepto.js"></script>
+<script src="/js/libs/iscroll/iscroll.js"></script>
+<script src="/js/MD5.js"></script>
+<script src="/js/libs/kissy/seed.js" data-config="{combine:false,debug:false}"></script>
+<script src="/js/module/config.js"></script>
+<script src="/js/module/common.js"></script>
+
+
+
+<script src="/js/module/arabia_to_chinese.js"></script>
+<script src="/js/mod/bind_card.js"></script>
+</body>
+</html>

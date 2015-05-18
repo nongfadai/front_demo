@@ -1,0 +1,47 @@
+.ssc_top{
+	margin:0 10px;
+	position:relative;
+	height:100px;
+	
+}
+
+.ssc_top_item{
+	display:inline-block;
+	width:30%;
+	text-align:center;
+	height:48px;
+	background-color:#FFF;
+	border-radius:24px;
+	position:relative;
+	z-index:3;
+	float:left;
+	top:24px;
+	font-size:14px;
+	line-height:16px;
+	padding-top:8px;
+	box-sizing:border-box;
+}
+
+
+.ssc_top_1{
+	margin-right:5%;
+	line-height:40px;
+}
+
+.ssc_top_2{
+	margin-right:5%;
+}
+
+.ssc_top_3{
+
+}
+
+.ssc_top_4{
+	position:absolute;
+	top:50%;
+	margin-top:-2px;
+	height:4px;
+	background-color:#999;
+	width:100%;
+	z-index:2;
+}

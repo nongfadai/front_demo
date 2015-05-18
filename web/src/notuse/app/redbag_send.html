@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>我的账户-小牛在线</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="css_old/old/wx_common.css">
+<link rel="stylesheet" type="text/css" href="css_old/old/wx_redbag.css">
+<meta itemprop="name" content="小牛在线送红包了">
+<meta itemprop="image" content="${styleLocation}/weixin/img/redbag/redbag_icon.jpg">
+<meta itemprop="description" content="红包多多，快来抢">
+</head>
+<body>
+<section class="wx_con">
+  <header></header>
+  <div class="wx_redbag wx_redbag2">
+    <div class="wx_redbag_bg"></div>
+    <img class="wx_redbag_title" src="img/old/redbag/wx_redbag_title.png" width="100%">
+    <div class="wx_redbag_margin wx_redbag_info wx_redbag_info2">
+      2015年，小牛在线发疯了！<br/>
+      真金白银，一分钟就能提现到银行卡。<br/>
+      兄弟只能帮你到这了~
+    </div>
+    
+     <!--提示-->
+    <div class="wx_redbag_margin wx_redbag_tip2" id="wxRedbagTip" style="display:none;"></div>
+    
+    <!--已经被领光-->
+    <div class="wx_redbag_margin wx_redbag_tip3" id="wxRedbagTip2" style="display:none;">
+        <p class="wx_redbag_tip3_header">
+            哦~买~嘎~<br>
+            手慢了，已经被领光啦。
+        </p>
+        <div class="wx_redbag_tip3_center">
+            <p>关注公众号“xiaoniuzaixian”<br>
+            参与更多活动
+            </p>
+            <div class="wx_redbag_ewm"></div>
+        </div>
+    </div>
+	<!--正常可领取红包-->
+    <div id="wxRedbagContent">
+        <div class="wx_redbag_margin wx_redbag_money_con">
+          <div class="wx_redbag_money">100元</div>
+          <img class="wx_redbag_money_bg" src="img/old/redbag/wx_redbag_money2.png" width="100%">
+        </div>
+        
+        
+        <div class="wx_redbag_margin">
+          <div id="wxRedbagSuccess" style="display:none;">
+              <div class="wx_redbag_margin wx_redbag_money_con">
+                  <img class="wx_redbag_money_bg" src="img/old/redbag/mm.jpg" width="100%">
+              </div>
+              <div class="wx_redbag_tip">
+                <h5>领取成功啦!</h5>
+                <p>现金已放入您的账户中，注册成功即可提现！</p>
+              </div>
+              <a href="/weixin/resources/weixin/account_draw.html" class="wx_redbag_btn">去提现</a>
+          </div>
+          <div id="wxRedbagForm">
+              <div class="wx_redbag_input">
+                <input type="tel" value="" id="mobile" maxlength="11" name="mobile" class="" placeholder="请输入您的手机号" />  
+              </div>
+              <div class="wx_redbag_input_tip" style="display:none;" id="wxInputTip"></div>
+              <div class="wx_redbag_btn wx_redbag_btn_red wx_redbag_btn_disabled" id="wx_btn_share">领取现金</div>
+          </div>
+        </div>
+     </div>    
+  </div>
+  <div class="wx_record">
+    <div class="wx_record_title"> <span class="wx_record_general">红包总额度200元，还有20元未领取</span> <span class="wx_rule" id="wxRuleHandler">活动规则</span> </div>
+    <div class="wx_record_nodata">还没有人来领哦。</div>
+    <ul class="wx_record_list">
+      <li class="wx_record_item">
+        <div class="wx_line1"><span class="wx_phone">135****2029</span><span class="wx_money">20.00元</span></div>
+        <div class="wx_line2">01-01 07:35</div>
+      </li>
+    </ul>
+  </div>
+  <div class="wx_mask" id="wx_mask">
+    <div class="wx_share_title"><a href="javascript:void(0);" class="wx_share_close"></a>活动规则</div>
+    <div class="wx_share_content wx_share_gz">
+      	1.红包是可以提现的真红包，数量有限，领完为止。<br/>
+        2.活动时间：2015.02.10~2015.03.09。<br/>
+        3.请先关注小牛在线微信公众号：xiaoniuzaixian。<br/>
+        4.红包分享后，即成为好友的理财师，若好友成功投资，则可获得最高1.2%的年化收益奖励，收益非常可观。<br/>
+        5.每个红包给予1个月的有效领取及1个月的有效提现时间，过期失效。<br/>
+        6.在活动过程中，严禁违规操作，否则取消活动资格。<br/>
+        7.本次活动最终解释权归：深圳市小牛在线互联网信息咨询有限公司！<br/>
+      </div>
+    <div class="wx_btn_iknow" id="wx_btn_iknow"></div>
+  </div>
+</section>
+ 
+<script type="text/javascript" src="lib/zepto/zepto.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var $container = $("#container");
+	var mask = $("#wx_mask");
+	var maskTip = $("#wx_mask_tip");
+	var wxInputTip = $("#wxInputTip");
+	var submitBtn = $("#wx_btn_share");
+	var mobile = $("#mobile");
+	var wxRedbagTip = $("#wxRedbagTip");
+	//maskTip.show();
+	$(document).on("click","#wxRuleHandler",function(){
+		mask.show();
+	}).on("click",".wx_btn_iknow,.wx_share_close",function(){
+		maskTip.hide();
+		mask.hide();
+	});
+	//禁用弹出层touchmove
+	function disabledTouchMove(obj){
+		obj.addEventListener('touchmove', function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+		});				
+	}
+	//disabledTouchMove(mask[0]);
+	//mobile 
+	mobile.on("focus",function(){
+		wxInputTip.hide();
+	}).on("keyup",function(){
+		mobile.removeClass("wx_redbag_input_error");
+		wxInputTip.hide();
+		if(checkPhone($(this).val())){
+			submitBtn.removeClass("wx_redbag_btn_disabled");
+		} else {
+			submitBtn.addClass("wx_redbag_btn_disabled");
+		}
+	});
+	//btn 
+	submitBtn.on("click",function(){
+		var $this = $(this);
+		if($this.hasClass("wx_redbag_btn_disabled")){
+			mobile.focus();
+			if(mobile.val()!==""){
+				if(!checkPhone(mobile.val())){
+					wxInputTip.html("请输入13、14、15、18或17开头的11位手机号码").show();
+					mobile.addClass("wx_redbag_input_error");
+				}
+			} else {
+				mobile.addClass("wx_redbag_input_error");	
+			}
+			return false;
+		};
+		wxInputTip.hide();
+		var param = {}
+		param["mobile"] = "";
+		param["amount"] = "";
+		$.ajax({
+			url:"/weixin/bonus/receive",
+			beforeSend: function(){
+				$this.html("正在领取红包...").addClass("wx_redbag_btn_disabled");
+			},
+			data:param,
+			type:"post",
+			dataType:"json",
+			success: function(data){
+				if(data=="1"){
+					//成功
+					$("#wxRedbagForm").hide();
+					$("#wxRedbagSuccess").show();
+					mobile.val("");
+				} else if(data=="2"){
+					wxRedbagTip.html("只有新伙伴才能领哦~").show();	
+					$("#wxRedbagContent").hide();
+				} else if(data=="3"){
+					wxRedbagTip.html("亲，你已经领过了哦~").show();	
+					$("#wxRedbagContent").hide();
+				} else if(data==4){
+					$("#wxRedbagTip2").show();
+					$("#wxRedbagContent").hide();
+				}
+			},
+			error:function(xhr,err){
+				wxInputTip.html("系统繁忙，请稍后再试！").show();
+				$this.html("领取红包").removeClass("wx_redbag_btn_disabled");
+			}
+		});
+		
+	});
+	//检测手机号码
+	function checkPhone(phone){
+		var phoneReg = /(^[1][3][0-9]{9}$)|(^[1][4][0-9]{9}$)|(^[1][5][0-9]{9}$)|(^[1][8][0-9]{9}|17[0-9]{9}$)/;
+		if(!phoneReg.test(phone)){
+			return false;	
+		}
+		return true;
+	}
+});
+</script>
+<div style="display:none"> 
+<!-- 百度 --> 
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?bfadffd6cb8f795e488eccaeb28cab61";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> 
+</div>
+</body>
+</html>

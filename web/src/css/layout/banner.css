@@ -1,0 +1,9 @@
+/* CSS Document */
+
+.banner{
+	clear:both;
+	position:relative;
+	font-size:0;
+	vertical-align:top;
+	z-index:11;
+}

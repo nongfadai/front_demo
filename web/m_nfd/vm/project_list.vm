@@ -1,0 +1,14 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+#parse("header.vm")
+<div>id:$data.a_id</div>
+<div>name:$data.a_name</div>
+#parse("footer.vm")
+</body>
+</html>

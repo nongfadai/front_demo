@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>我的账户-小牛在线</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="css_old/old/wx_common.css">
+<link rel="stylesheet" type="text/css" href="css_old/old/wx_redbag.css">
+</head>
+<body>
+<section class="wx_con">
+  <header></header>
+  <div class='wx_top'> <a class="wx_top_logo" href="index.html"> </a> <span class="wx_top_gap"></span> <span class='wx_top_title'>我的账户</span>
+    <div class="wx_top_btn wx_top_loginout"> <a class="" href="/weixin/logout">安全退出</a> </div>
+  </div>
+  <div class="wx_redbag">
+    <div class="wx_redbag_bg"></div>
+    <img class="wx_redbag_title" src="img/old/redbag/wx_redbag_title.png" width="100%">
+    <div class="wx_redbag_margin wx_redbag_info">很抱歉您不能参与本次活动<br>
+      投资越多，机会越多，期待下次有您！
+    </div>
+    <div class="wx_redbag_margin">
+      <a href="list.html"><div class="wx_redbag_btn">现在就去投资</div></a>
+    </div>
+  </div>
+  <!--分享-->
+  <div class="wx_mask" id="wx_mask">
+    <div class="wx_share_guide">
+      <div class="wx_btn_iknow" id="wx_btn_iknow"></div>
+    </div>
+  </div>
+  <!--规则-->
+  <div class="wx_mask" id="wx_mask_gz">
+  	<div class="wx_rule_con">
+        <div class="wx_share_title"><a href="javascript:void(0);" class="wx_share_close"></a>活动规则</div>
+        <div class="wx_share_content">2015年，小牛在线发疯了！<br/>
+          真金白银，一分钟就能提现到银行卡。<br/>
+          兄弟只能帮你到这了~</div>
+        <div class="wx_btn_iknow" id="wx_btn_iknow2"></div>
+    </div>
+  </div>
+  <div class="foot">
+    <div class="foot_nav_list">
+        <span class="foot_nav"><a href="index.html" class="foot_nav nav_index "><i></i><em>首页</em></a></span>
+        <span class="foot_nav"><a href="list.html#axn" class="foot_nav nav_invest nav_invest_cur"><i></i><em>我要投资</em></a></span>
+        <span class="foot_nav"><a href="account.html" class="foot_nav nav_account"><i></i><em>我的账户</em></a></span>
+        <span class="foot_nav"><a href="aboutus.html" class="foot_nav nav_about"><i></i><em>关于小牛</em></a></span>
+    </div>
+  </div>
+</section>
+ 
+<script type="text/javascript" src="lib/zepto/zepto.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var wx_mask = $("#wx_mask");
+	var wx_mask_gz = $("#wx_mask_gz");
+	//分享弹出层
+	$(document).on("click","#wx_btn_share",function(){
+		wx_mask.show();
+	}).on("click",	"#wx_btn_iknow,#wx_btn_iknow2,.wx_share_close",function(){
+		wx_mask.hide();
+		wx_mask_gz.hide();
+	}).on("click",".wx_rule",function(){
+		//规则弹出层
+		wx_mask_gz.show();
+	})
+});
+</script>
+<div style="display:none"> 
+<!-- 百度 --> 
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?bfadffd6cb8f795e488eccaeb28cab61";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script> 
+</div>
+</body>
+</html>

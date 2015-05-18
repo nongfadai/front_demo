@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>我的账户-小牛在线</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="css_old/old/wx_common.css">
+<link rel="stylesheet" type="text/css" href="css_old/old/wx_redbag.css">
+<meta itemprop="name" content="小牛在线送红包了">
+<meta itemprop="image" content="${styleLocation}/weixin/img/redbag/redbag_icon.jpg">
+<meta itemprop="description" content="红包多多，快来抢">
+</head>
+<body>
+<section class="wx_con">
+  <header></header>
+  <div class='wx_top'>
+    <a class="wx_top_logo" href="index.html">
+    </a>
+    <span class="wx_top_gap"></span>
+    <span class='wx_top_title'>我的账户</span>
+    <div class="wx_top_btn wx_top_loginout">
+      <a class="" href="/weixin/logout">安全退出</a>
+    </div>
+  </div>
+  <div class="wx_redbag">
+    <div class="wx_redbag_bg"></div>
+    <img class="wx_redbag_title" src="img/old/redbag/wx_redbag_title.png" width="100%">
+    <div class="wx_redbag_margin wx_redbag_info">你有500元现金红包可发放！<br>
+      你可以将红包分享给好友，小牛在线未注册用户和未投资用户均可领取，领取后不用投资就能提现。<br>
+      Ta注册并投资后，你还可获得<i>10元</i>奖励！ </div>
+    <div class="wx_redbag_margin wx_redbag_money_con">
+      <div class="wx_redbag_money">100元</div>
+      <img class="wx_redbag_money_bg" src="img/old/redbag/wx_redbag_money.png" width="100%">
+    </div>
+    <div class="wx_redbag_margin">
+      <div class="wx_redbag_btn" id="wx_btn_share">免费给小伙伴发红包</div>
+    </div>
+  </div>
+  <!--记录-->
+  <div class="wx_record">
+    <div class="wx_record_title">
+      <span class="wx_record_general">红包总额度200元，还有20元未领取</span>
+      <span class="wx_rule">活动规则</span>
+    </div>
+    <div class="wx_record_nodata">还没有人来领哦。</div>
+    <ul class="wx_record_list">
+      <li class="wx_record_item">
+        <div class="wx_line1"><span class="wx_phone">135****2029</span><span class="wx_money">20.00元</span></div>
+        <div class="wx_line2 wx_time">01-01 07:35</div>
+      </li>
+      <li class="wx_record_item">
+        <div class="wx_line1"><span class="wx_phone">135****2029</span><span class="wx_money">20.00元</span></div>
+        <div class="wx_line2 wx_time">01-01 07:35</div>
+      </li>
+      <li class="wx_record_item">
+        <div class="wx_line1"><span class="wx_phone">135****2029</span><span class="wx_money">20.00元</span></div>
+        <div class="wx_line2 wx_time">01-01 07:35</div>
+      </li>
+      <li class="wx_record_item">
+        <div class="wx_line1"><span class="wx_phone">135****2029</span><span class="wx_money">20.00元</span></div>
+        <div class="wx_line2 wx_time">01-01 07:35</div>
+      </li>
+    </ul>
+  </div>
+  <!--分享-->
+  <div class="wx_mask" id="wx_mask">
+    <div class="wx_share_guide">
+      <div class="wx_btn_iknow" id="wx_btn_iknow"></div>
+    </div>
+  </div>
+  <!--规则-->
+  <div class="wx_mask" id="wx_mask_gz">
+    <div class="wx_rule_con">
+      <div class="wx_share_title">
+        <a href="javascript:void(0);" class="wx_share_close"></a>
+        活动规则</div>
+      <div class="wx_share_content wx_share_gz">
+      	1.红包是可以提现的真红包，数量有限，领完为止。<br/>
+        2.活动时间：2015.02.10~2015.03.09。<br/>
+        3.请先关注小牛在线微信公众号：xiaoniuzaixian。<br/>
+        4.红包分享后，即成为好友的理财师，若好友成功投资，则可获得最高1.2%的年化收益奖励，收益非常可观。<br/>
+        5.每个红包给予1个月的有效领取及1个月的有效提现时间，过期失效。<br/>
+        6.在活动过程中，严禁违规操作，否则取消活动资格。<br/>
+        7.本次活动最终解释权归：深圳市小牛在线互联网信息咨询有限公司！<br/>
+      </div>
+      <div class="wx_btn_iknow" id="wx_btn_iknow2"></div>
+    </div>
+  </div>
+  <!--提示-->
+  <div class="wx_mask" id="wx_mask_tip" style="display:none;">
+    <div class="wx_share_title"><a href="javascript:void(0);" class="wx_share_close"></a>提示</div>
+    <div class="wx_share_content">亲，您好：<br/>
+      本页面需要在微信上打开，使用微信的“发送给好友”功能才能成功发红包哦！<br/>
+      <br/>
+      马上在微信上关注小牛在线公众号“xiaoniuzaixian”，参与本次活动。 </div>
+    <div class="wx_btn_iknow" id="wx_btn_iknow"></div>
+  </div>
+</section>
+
+<script type="text/javascript" src="lib/zepto/zepto.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	var wx_mask = $("#wx_mask");
+	var wx_mask_gz = $("#wx_mask_gz");
+	var wx_mask_tip = $("#wx_mask_tip");
+	//分享弹出层
+	$(document).on("click","#wx_btn_share",function(){
+		if(navigator.appVersion.match(/MicroMessenger/i)){
+			wx_mask.show();
+		} else {
+			wx_mask_tip.show();
+		}
+	}).on("click",	"#wx_btn_iknow,#wx_btn_iknow2,.wx_share_close",function(){
+		$(".wx_mask").hide();
+	}).on("click",".wx_rule",function(){
+		wx_mask_gz.find(".wx_share_gz").addClass("wx_share_gz2")
+		wx_mask_gz.show();
+	})
+	//禁用弹出层touchmove
+	function disabledTouchMove(obj){
+		obj.addEventListener('touchmove', function(e) {
+			e.stopPropagation();
+			e.preventDefault();
+		});				
+	}
+	//disabledTouchMove(wx_mask[0]);
+	//disabledTouchMove(wx_mask_gz[0]);
+	//disabledTouchMove(wx_mask_tip[0]);
+});
+</script>
+<div style="display:none">
+<!-- 百度 -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?bfadffd6cb8f795e488eccaeb28cab61";
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+</div>
+</body>
+</html>

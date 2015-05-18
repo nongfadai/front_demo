@@ -1,0 +1,29 @@
+/* CSS Document */
+
+.main{
+	position:absolute;
+	z-index:1;
+	top:0px;
+	bottom:0px;
+	
+	margin-bottom:48px;
+	margin-top:46px;
+	
+	min-height:420px;
+	width:100%;
+	overflow:hidden;
+}
+
+.banner{
+	clear:both;
+	position:relative;
+	font-size:0;
+	vertical-align:top;
+	z-index:11;
+}
+
+.main .scroll{
+	z-index:10;
+}
+
+

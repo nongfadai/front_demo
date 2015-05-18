@@ -1,0 +1,18 @@
+<div id="nfd-footer">
+  <a href="index.html" class="menu">
+  <img src="img/homepage.png" />
+  <div>主页</div>
+  </a>
+  <a href="project_list.html" class="menu">
+  <img src="img/investment.png" />
+  <div>投资理财</div>
+  </a>
+  <a href="account.html" class="menu current">
+  <img src="img/account_current.png" />
+  <div>我的账户</div>
+  </a>
+  <a href="about_us.html" class="menu">
+  <img src="img/about.png" />
+  <div>关于我们</div>
+  </a>
+</div>

@@ -1,0 +1,79 @@
+/* CSS Document */
+
+/*底部导航*/
+.foot {
+	width: 100%;
+	max-width: 640px;
+	margin: 0px auto;
+	height: 48px;
+	border-top: 1px #d0d0d0 solid;
+	background-color: #f4f4f4;
+	overflow: hidden;
+	
+	position:absolute;
+	z-index:2;
+	bottom:0px;
+	
+	
+}
+.nav_list{
+	display: block;
+	margin:0 0px;
+	background-color:#ccc;
+}
+.nav {
+	width: 25%;
+	display: inline-block;
+	float:left;
+	text-align: center;
+}
+.nav a {
+	padding-top: 0px;
+	padding-bottom:5px;
+	height:43px;
+	width: 100%;	
+	color: #666;
+	font-size: 12px;
+	display: block;
+}
+.nav i {
+	display: block;
+	width: 32px;
+	height: 30px;
+	margin: 0 auto;
+}
+.nav em {
+	font-style:normal;
+}
+.nav.active em{
+	color: #cda148;
+}
+
+
+
+.nav.active .nav_index i {
+	background: url('../img/layout/nav/index2_32.png');
+}
+.nav.active .nav_invest i {
+	background: url('../img/layout/nav/list2_32.png');
+}
+.nav.active .nav_account i {
+	background: url('../img/layout/nav/account2_32.png');
+}
+.nav.active .nav_about i {
+	background: url('../img/layout/nav/about2_32.png');
+}
+
+
+.nav_index i {
+	background: url('../img/layout/nav/index_32.png');
+}
+.nav_invest i {
+	background: url('../img/layout/nav/list_32.png');
+}
+.nav_account i {
+	background: url('../img/layout/nav/account_32.png');
+}
+.nav_about i {
+	background: url('../img/layout/nav/about_32.png');
+}

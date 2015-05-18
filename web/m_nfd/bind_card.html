@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no,address=no,email=no">
+<meta name="mobileOptimized" content="width">
+<meta name="handheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<link rel="stylesheet" type="text/css" href="/css/style.css?2015050501" />
+<title>农发贷</title>
+
+</head>
+<body>
+<div id="nfd-header" class="nfd-header">
+    <div class="icon-c">
+		<span class="title">绑定银行卡</span>
+        <a href="javascript:void(0)" class="menu">
+            </a>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<div id="nfd-header2" class="nfd-header nfd-header2">
+    <div class="icon-c">
+		<span class="title">绑定银行卡</span>
+        <a href="javascript:void(0)" class="menu">
+            </a>
+        <div class="clearfix"></div>
+    </div>
+</div>
+<!-- 登录态 -->
+<div id="menus" class="menus logined">
+	<a href="/user/logout.htm"  target="_self">
+		<img src="/img/header/logout.png" alt="logout" />
+		<span>
+			退出
+		</span>
+	</a>
+	<a href="/user/account/recharge.html" target="_self" >
+		<img src="/img/header/account.png" alt="account" />
+		<span>
+			充值
+		</span>
+	</a>
+	<a href="/project_list.html"  target="_self">
+		<img src="/img/header/invest.png" alt="invest" />
+		<span>
+			投标
+		</span>
+	</a>
+	<div class="clearfix"></div>
+</div>
+<div class="clearfix"></div>
+<div class="menu-mask" id="menu-mask"></div>
+		<div id="scroller">
+  <div id="nfd-touch">
+    <div id="nfd-channel-banks">
+      <form id="nfd-channel-form-bank" method="post" action="/pay/lianlian/chargeServlet.htm">
+        <input type="hidden" name="user_id" id="user_id" value="2"/>
+        <input type="hidden" name="no_agree" id="no_agree"/>
+        <div>
+          <input id="acct_name" name="acct_name" type="text" value="" placeholder="请输入真实姓名" name="accountName" class="radius-top"  required required-msg="真实姓名不能为空" nfdrealname />
+          <div class="msg-wrapper" style="display:none;"></div>
+        </div>
+        <div>
+          <input id="id_no"  name="id_no" type="text" value=""  placeholder="请输入身份证号" name="accountID" required required-msg="身份证号不能为空" cnidcard />
+          <div class="msg-wrapper" style="display:none;"></div>
+        </div>
+        <!-- 银行卡 -->
+        <div id="select-bank-name" class="relative">
+          <input id="bankName" name="bankName" placeholder="请选择发卡银行" readonly class="btn">
+          <input id="bank_code" name="bank_code" type="hidden" value=""  max="" required-msg="请选择发卡银行"/>
+          <div class="msg-wrapper" style="display:none;"></div>
+        </div>
+        <div id="bank_list" class="hide">
+          <div data-bankcode="">请选择</div>
+        </div>
+        <div>
+          <input type="text" id="card_no" name="card_no" value=""   onkeyup="value=value.replace(/\D/g,'')" maxlength="19" placeholder="请输入银行卡号" required required-msg="银行卡号不能为空" number="true" number-msg="银行卡号必须是数字">
+          <div class="msg-wrapper" style="display:none;"></div>
+        </div>
+        <!-- 充值金额 -->
+        <div>
+          <input type="text" id="money_order" name="money_order" class="mt-m last-child radius-top radius-bottom" onkeyup="value=value.replace(/\D/g,'')" placeholder="请输入充值金额" money required required-msg="充值金额不能为空或零" ge="200" ge-msg="充值金额不能低于200元" le="200000" le-msg="充值金额不能高于20万元" />
+          <div class="secondary font-12 mt-m ml-m"><span id="singleRecharge"></span><span id="b_v" style="font-weight:bold"></span></div>
+          <div class="msg-wrapper" style="display:none;"></div>
+        </div>
+        <!-- 同意协议 -->
+        <div class="contact-c">
+          <input id="nfd-contract-agree" type="checkbox" disabled name="nfd-contract-agree" checked="checked" required required-msg="需同意农发贷快捷支付协议">
+          <label for="nfd-contract-agree"> 我同意 </label>
+          <a href="javascript:void(0)" id="nfd-contract-btn" class="blue"> 认证支付协议 </a>
+        </div>
+        <div class="next-btn">
+          <button id="add-bank" class="btn-primary big" type="button" role="button" aria-disabled="false" tabindex="0" hidefocus="true" aria-pressed="false" onclick="cz()"> 下一步 </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="Contract" aria-labelledby="ContractLabel">
+    <div class="modal-header">
+      <h3 id="ContractLabel"> 农发贷注册协议 </h3>
+    </div>
+    <div class="modal-body">
+      <p> 农发贷由深圳农金圈金融服务有限公司成立并运营，以下所称"本网站"即包含了网站本身及网站运营商深圳农金圈金融服务有限公司。在您注册成为本网站用户前，您已充分阅读并理解本《注册协议》（"本协议"）的所有条款。您同意以下条款并注册后，将有权依据本协议的条款接受本网站的服务，同时有义务接受本协议条款的约束。 </p>
+      <h4> 一、本协议的文本 </h4>
+      <p> 1.1 本协议的内容包括以下全部条款以及本网站已经发布的及将来可能发布的与出借人用户有关的各项规则，该等规则均为本协议不可分割的一部分，与以下所列条款具有同等法律效力。 </p>
+      <p> 1.2 本网站有权根据需要修改本协议的内容。如以下条款或本网站各项规则有任何变更，本网站将在网站上刊载公告。经修订的相关条款和规则一经公告，即于公告规定的特定生效日期自动生效。请您适时关注本网站关于相关条款和规则的公告，如不同意该等变更，请您在该等变更的公告刊载之日起72小时内以您在本网站注册时提供的个人邮箱向本网站的服务邮箱(service@nongfadai.com)发送邮件表明希望终止本协议（"注册终止申请"），本网站确认收到您的邮件后将与您协商本协议终止后双方义务的履行。如您在本条所述时限内未发送注册终止申请，则本条所述时限届满之时，视为您已经同意接受该等变更，经修订的相关条款和规则一经公告，即于公告规定的特定生效日期自动生效并对您产生法律约束力。 </p>
+      <p> 1.3 您只要勾选位于注册页面下方的"我同意注册协议"选项并按照本网站的流程成功注册后，本协议即产生法律效力。您不得以未签署书面协议为由否认本协议的效 力。本协议是由您与本网站共同签订的，适用于您在本网站的全部活动。在您注册成为用户时，您已经阅读、理解并接受本协议的全部条款及各类规则，如有违反而导致任何法律后果的发生，您将以自己的名义独立承担所有相应的法律责任。 </p>
+      <p> 1.4 本协议不涉及您与本网站的其他用户之间因网上交易而产生的法律关系及法律纠纷。 </p>
+      <h4> 二、注册用户的身份限制 </h4>
+      <p> 2.1 作为本网站用户，您必须是中国大陆公民，年龄在18周岁以上，且具有完全的民事权利能力及民事行为能力。如不具备上述资格，您应立即停止在本网站的注册程序、停止使用本网站服务，本网站有权随时终止您的注册进程及本网站服务，您应对您的注册给本网站带来的损失承担全额赔偿责任，且您的监护人（如您为限制民事行为能力的自然人）或您的实际控制人（如您为实体）应承担连带责任。 </p>
+      <p> 2.2 在注册时和使用本网站服务的所有期间，您应提供您自身的真实资料和信息，并保证自您注册之时起至您使用本网站服务的所有期间，其所提交的所有资料和信息 （包括但不限于电子邮件地址、联系电话、联系地址、邮政编码、个人身份信息、征信信息等）真实、准确、完整，且是最新的。 </p>
+      <h4> 三、本网站的服务内容 </h4>
+      <p> 3.1 本网站通过本网站以及其他渠道和方式等向您提供以下服务中的一项或多项： </p>
+      <p> (1) 撮合您与借款人形成借贷交易的居间服务； </p>
+      <p> (2) 您对借款人的既有债权的转让； </p>
+      <p> (3) 信贷信息咨询与中介及贷后管理服务； </p>
+      <p> (4) 其他相关服务。 </p>
+      <p> 3.2 本网站就向您提供的服务是否收取服务费及服务费的具体标准和规则由本网站与您另行签署的《信息咨询及服务协议》及其他协议，以及本网站公布的规则确定。 </p>
+      <h4> 四、用户使用限制 </h4>
+      <p> 4.1 您不得利用本网站或本网站服务从事任何不符合中国法律法规或侵犯他人权益的活动。本网站在发现您从事该等活动时，有权不经通知而立即停止您对本网站的全部或部分功能的使用。 </p>
+      <p> 4.2 在使用本网站提供的任何服务（包括但不限于站内信服务、群组服务、论坛服务或其他电子邮件转发服务）的过程中，您不得发送、公布或展示任何垃圾邮件、信息 或其他可能违反中国法律法规及本协议的内容。本网站在发现您从事该等活动或发布该等内容时，有权不经您同意而删除该等内容，并有权不经通知而立即暂停或停 止您对本网站的全部或部分功能的使用。 </p>
+      <p> 4.3 您在注册时向本网站提交的电子邮箱、密码及安全问题答案是您在本网站的唯一识别信息。您注册成功后，不得将注册的电子邮箱、密码及安全问题答案转让给第三方使用。您确认，使用您的用户名和密码登录本网站后在本网站的一切行为以及以您在本网站注册时提交的个人电子邮箱发送邮件的行为均代表您本人并由您承担相应的法律后果。 </p>
+      <p> 4.4 本网站的所有内容，包括但不限于文本、数据、图片、音频、视频、源代码和其他所有信息，均由本网站享有知识产权。未经本网站事先书面同意，您或其他任何人不得复制、改编、传播、公布、展示或以任何其他方式侵犯本网站的知识产权 </p>
+      <h4> 五、用户信息的保护及披露 </h4>
+      <p> 5.1 您同意本网站在业务运营中收集和储存您的用户信息，包括但不限于您自行提供的资料和信息，以及本网站自行收集、取得的您在本网站的交易记录和使用信息等。本网站收集和储存您的用户信息的主要目的在于提高为您提供服务的效率和质量。 </p>
+      <p> 5.2 您同意本网站在业务运营中使用您的用户信息，包括但不限于： </p>
+      <p> (1) 根据双方另行签署的《投资咨询与管理服务协议》在本网站公示您的相关信息； </p>
+      <p> (2) 向本网站的合作机构（该合作机构仅限于本网站为了完成拟向您提供的服务而合作的机构）提供您的用户信息； </p>
+      <p> (3) 由人工或自动程序对您信息进行评估、 分类、研究； </p>
+      <p> (4) 使用您的用户信息以改进本网站的推广； </p>
+      <p> (5) 使用您提供的联系方式与您联络并向您传递有关业务和管理方面的信息。 </p>
+      <p> (6) 本网站有时候可能调查多个用户以识别问题或解决争议，特别是本网站可审查您的资料以区分使用多个用户名或别名的用户。 </p>
+      <h4> 六、 争议的处理 </h4>
+      <p> 本协议在履行过程中，如发生任何争执或纠纷，双方应友好协商解决，协商不成的，任何一方应向深圳农金圈金融服务有限公司住所地人民法院提起诉讼。 </p>
+    </div>
+  </div>
+</div>
+<div class="clear"></div>
+<div class="modal-footer" id="back_register">
+  <button data-dismiss="modal" aria-hidden="true" class="btn btn-primary"> 返回 </button>
+</div>
+<!--B 底部-->
+<div id="nfd-footer"><!--具体激活哪个菜单  要增加一个变量来控制-->
+    <a href="/index.html" class="menu">
+        <img src="/img/homepage.png" />
+        <div>主页</div>
+    </a>
+    <a href="/project_list.html" class="menu">
+        <img src="/img/investment.png" />
+        <div>投资理财</div>
+    </a>
+    <a href="/user/account/index.html" class="menu current">
+        <img src="/img/account_current.png" />
+        <div>我的账户</div>
+    </a>
+    <a href="/about_us.html" class="menu">
+        <img src="/img/about.png" />
+        <div>关于我们</div>
+    </a>
+</div>
+<!--E 底部--><script type="text/javascript">
+	var basepath="http://192.168.1.59:18888/";
+</script>
+<script src="/js/libs/zepto/zepto.js"></script>
+<script src="/js/libs/iscroll/iscroll.js"></script>
+<script src="/js/mod/bind_card.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+.index_imgs{
+	background-color:#fff;
+	height:300px;
+}
+.index_imgs div{
+	width:44%;
+	margin:4% 0% 0 4%;
+	display:inline-block;
+	float:left;
+	height:160px;
+	text-align:center;
+	background-repeat:no-repeat;
+	background-position:center center;
+	color:#fff;
+}
+.index_img1{
+	background-image:url(../img/new/chair.png);
+	background-color:#f27f22;
+	background-size:120px 120px;
+}
+.index_img2{
+	background-image:url(../img/new/baymax.png);
+	background-color:#18a14f;
+	background-size:120px 120px;
+}
+.index_img3{
+	background-image:url(../img/new/umbrella10.png);
+	background-color:#056e9e;
+	background-size:120px 120px;
+}
+.index_img4{
+	background-image:url(../img/new/happy3.png);
+		background-color:#f25022;
+	background-size:100px 100px;
+}

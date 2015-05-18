@@ -1,0 +1,39 @@
+第一种情况，有卡有实名 
+
+{
+    "phone": "18*******39",
+    "idNO": "21**************13",
+    "card": {
+        "userId": 12722,
+        "bankType": "BOS",
+        "bankTypeName": "上海银行",
+        "bankCardNo": "6553***********4125",
+        "status": 0
+    },
+    "realName": "邱**"
+}
+
+
+第二种情况，有卡无实名 
+
+{
+    "phone": "18*******39",
+    "idNO": null,
+    "card": {
+        "userId": 12722,
+        "bankType": "BOS",
+        "bankTypeName": "上海银行",
+        "bankCardNo": "6553***********4125",
+        "status": 0
+    },
+    "realName": null
+}
+
+
+第三种情况，无卡无实名 
+
+{
+    "phone": "18*******39",
+    "idNO": null,
+    "realName": null
+}

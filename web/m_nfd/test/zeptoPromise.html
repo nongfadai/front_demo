@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<meta name="format-detection" content="telephone=no,address=no,email=no">
+<meta name="mobileOptimized" content="width">
+<meta name="handheldFriendly" content="true">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+</head>
+
+<body>
+<div id="out">
+</div>
+<script src="zepto/zepto.js"></script>
+<script src="zepto/event.js"></script>
+<script src="zepto/ajax.js"></script>
+<script src="zepto/form.js"></script>
+<script src="zepto/ie.js"></script>
+<script src="zepto/detect.js"></script>
+<script src="zepto/fx.js"></script>
+<script src="zepto/deferred.js"></script>
+<script src="zepto/callbacks.js"></script>
+<script>
+	//console.log($.when);
+	//console.log($.os);
+	//console.log($.browser);
+	$("#out").html("os:"+$.os+" <br>browser:"+$.browser);
+	var a1=$.ajax("test.html");
+	console.log(a1);
+	$.when(a1).then(done);
+	
+	function done(){
+		console.log("done");
+	}
+</script>
+</body>
+</html>

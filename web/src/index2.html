@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>本利保</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<style type="text/css">
+html{
+	margin:0;
+	padding:0;
+	height:100%;
+}
+body {
+	margin:0;
+	padding:0;
+	height:100%;
+	line-height:100%;
+	background-color:#0CF;
+	position:relative;
+}
+.con{
+	position:absolute;
+	top:50%;
+	width:100%;
+	color:#fff;
+	margin-top:-60px;
+	height:120px;
+	text-align:center;
+	}
+.logo{
+	font-size:60px;
+	letter-spacing:12px;
+	line-height:60px;
+	height:60px;
+	font-weight:bold;
+	text-decoration:none;
+	font-family:'Hiragino Sans GB', 'Microsoft Yahei', arial, 宋体, 'Helvetica Neue', Helvetica, STHeiTi, sans-serif;
+}
+.hline{
+	height:1px;
+	display:inline-block;
+	width:0px;
+	margin:12px auto;
+	margin-top:24px;
+	background-color:#fff;
+	 -webkit-animation-name:'animate_wobble';/*动画属性名，也就是我们前面keyframes定义的动画名*/
+	 -webkit-animation-duration: 1.5s;/*动画持续时间*/
+	 -webkit-animation-timing-function: linear; /*动画频率，和transition-timing-function是一样的*/
+	 -webkit-animation-delay: 0.2s;/*动画延迟时间*/
+	 -webkit-animation-iteration-count: 1;/*定义循环资料，infinite为无限次*/
+	 -webkit-animation-direction: alternate;/*定义动画方式*/
+	 -webkit-animation-fill-mode:forwards;
+
+}
+.des{
+	line-height:24px;;
+	font-size:14px;
+	letter-spacing:6px;
+	font-weight:normal;
+}
+
+.mask_con{
+	position:relative;
+	z-index:1;
+	overflow:hidden;
+	margin: 0 auto;
+	width:300px;
+
+}
+.mask_con .text{
+	opacity:1;
+	position:relative;
+	z-index:1;
+	color:#fff;
+}
+.mask{
+	position:absolute;
+	width:100%;
+	height:100%;
+	left:0px;
+	top:0px;
+	background-image:-webkit-linear-gradient(0deg, rgba(0, 204, 255,0.95), rgba(0, 204, 255,1));
+	z-index:2;
+	-webkit-animation-name: animate_mask;
+	-webkit-animation-duration: 2.1s;
+	-webkit-animation-timing-function: ease-in;/*ease-in-out;*/
+	-webkit-animation-delay: 2.0s;
+
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-direction: alternate;
+	/*animation-direction: normal;
+animation-direction: reverse;
+animation-direction: alternate;
+animation-direction: alternate-reverse;
+animation-direction: normal, reverse;
+animation-direction: alternate, reverse, normal;*/
+	-webkit-animation-play-state: running;
+	-webkit-animation-fill-mode:forwards;
+}
+
+.text i {
+	z-index:3;
+	display: inline-block;
+	line-height:35px;
+	font-size:25px;
+	color:#d9ffec;
+	letter-spacing:0;
+	margin:0;
+	
+	-webkit-transform:translateY(0px);
+	-webkit-transform-origin:center center;
+	font-style:normal;
+	
+	-webkit-transform: translateZ(0)  scale(1);
+	
+	-webkit-animation-name: preloader_1;
+	-webkit-animation-duration: 1.0s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-delay: 2.0s;
+	-webkit-animation-iteration-count: 1;
+	-webkit-animation-play-state: running;
+	-webkit-animation-fill-mode:forwards;
+
+}
+.text i:nth-child(1) {
+	-webkit-animation-delay: 2.0s;
+}
+.text i:nth-child(2) {
+	-webkit-animation-delay: 2.2s;
+}
+.text i:nth-child(3) {
+	-webkit-animation-delay: 2.4s;
+}
+.text i:nth-child(4) {
+	-webkit-animation-delay: 2.6s;
+}
+.text i:nth-child(5) {
+	-webkit-animation-delay: 2.8s;
+}
+.text i:nth-child(6) {
+	-webkit-animation-delay: 3.0s;
+}
+.text i:nth-child(7) {
+	-webkit-animation-delay: 3.2s;
+}
+.text i:nth-child(8) {
+	-webkit-animation-delay: 3.4s;
+}
+.text i:nth-child(9) {
+	-webkit-animation-delay: 3.6s;
+}
+.text i:nth-child(10) {
+	-webkit-animation-delay: 3.8s;
+}
+.text i:nth-child(11) {
+	-webkit-animation-delay: 4.0s;
+}
+@-webkit-keyframes preloader_1 {
+ 0% {
+-webkit-transform:translateY(0px);
+}
+ 100% {
+-webkit-transform:translateY(0px) scale(0.6);
+/*color:#fff;
+*/}
+}
+
+
+
+
+@-webkit-keyframes 'animate_mask' {
+ 0% {
+-webkit-transform:translateX(0px);
+}
+ 100% {
+-webkit-transform:translateX(300px);
+}
+}
+
+@-webkit-keyframes 'animate_font' {
+ 0% {
+-webkit-transform:scale(1,1);
+}
+ 0% {
+-webkit-transform:scale(2,2);
+}
+ 100% {
+-webkit-transform:scale(1,1);
+}
+}
+
+@-webkit-keyframes 'animate_wobble' {
+     from {
+       width:0px;
+     }
+    50% {
+      width:150px;
+    }
+   to {
+     width:300px;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="con">
+	<div class="logo">本利保</div>
+    <div class="hline"></div>
+    <div class="mask_con des"><div class="text"><i>原</i><i>来</i><i>投</i><i>资</i><i>可</i><i>以</i><i>这</i><i>样</i><i>放</i><i>心</i><i>的</i></div><div class="mask"></div></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>小牛在线</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta content="yes" name="apple-mobile-web-app-capable" />
+<meta content="black" name="apple-mobile-web-app-status-bar-style" />
+<meta content="telephone=no" name="format-detection" />
+<link rel="stylesheet" type="text/css" href="css/m_index.css">
+<link rel="stylesheet" type="text/css" href="css/b1_layout.css">
+<link rel="stylesheet" type="text/css" href="css/common.css">
+</head>
+<body>
+<div class="con mod_index">
+  <div class="top"><a class="top_logo float_left" href="index.html"></a>
+    <div class="top_div top_login" id="loginDiv"> <a href="register.html">免费注册</a> <a href="login.html">登录</a> </div>
+    <div class="top_div top_balance" id="balanceDiv">
+      <p>可用余额</p>
+      <p><em id="myBalance">元</em></p>
+    </div>
+    <div class="top_div top_logout" id="logoutDiv"> <a class="" href="logout.html">安全退出</a> </div>
+  </div>
+  <div class="main" id="main">
+    <div class="banner" id="banner"> <img class="img" id="img1" src="img/old/redbag/wx_redbag_index_1.jpg" width="100%"/> <img class="img hide" id="img2" src="img/old/redbag/wx_redbag_index_2.jpg" width="100%"/>
+      <div class="banner_redbag_info_con1">
+        <table  class="banner_redbag_info_con2">
+          <tr>
+            <td><div class="redbag_info">你有<i><em id="bonusAmount"></em>元现金</i>可以分享给好友<br>
+                Ta成功领取后,你就自动成为Ta的理财师<br/>
+                按平均投资额计算,理财师收益约为<em id="bonusEarnings"></em>元 </div></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div class="scroll" id="scroller">
+      <ul>
+        <li>Pretty row 1</li>
+        <li>Pretty row 2</li>
+        <li>Pretty row 3</li>
+        <li>Pretty row 4</li>
+        <li>Pretty row 5</li>
+        <li>Pretty row 6</li>
+        <li>Pretty row 7</li>
+        <li>Pretty row 8</li>
+        <li>Pretty row 9</li>
+        <li>Pretty row 10</li>
+        <li>Pretty row 11</li>
+        <li>Pretty row 12</li>
+        <li>Pretty row 13</li>
+        <li>Pretty row 14</li>
+        <li>Pretty row 15</li>
+        <li>Pretty row 16</li>
+        <li>Pretty row 17</li>
+        <li>Pretty row 18</li>
+        <li>Pretty row 19</li>
+        <li>Pretty row 20</li>
+        <li>
+          <input type="text" name="txt1">
+        </li>
+        <li>Pretty row 22</li>
+        <li>Pretty row 23</li>
+        <li>Pretty row 24</li>
+        <li>Pretty row 25</li>
+        <li>Pretty row 26</li>
+        <li>Pretty row 27</li>
+        <li>Pretty row 28</li>
+        <li>Pretty row 29</li>
+        <li>Pretty row 30</li>
+        <li>Pretty row 31</li>
+        <li>Pretty row 32</li>
+        <li>Pretty row 33</li>
+        <li>Pretty row 34</li>
+        <li>Pretty row 35</li>
+        <li>Pretty row 36</li>
+        <li>Pretty row 37</li>
+        <li>Pretty row 38</li>
+        <li>Pretty row 39</li>
+        <li>Pretty row 40</li>
+        <li>Pretty row 41</li>
+        <li>Pretty row 42</li>
+        <li>Pretty row 43</li>
+        <li>Pretty row 44</li>
+        <li>Pretty row 45</li>
+        <li>Pretty row 46</li>
+        <li>Pretty row 47</li>
+        <li>Pretty row 48</li>
+        <li>Pretty row 49</li>
+        <li>Pretty row 50</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot">
+    <ul class="nav_list">
+      <li class="nav active"> <a class="nav_index"><i></i><em>首页</em></a> </li>
+      <li class="nav"> <a href="list.html#axn" class="nav_invest"><i></i><em>我要投资</em></a> </li>
+      <li class="nav"> <a href="account.html" class="nav_account"><i></i><em>我的账户</em></a> </li>
+      <li class="nav"> <a href="aboutus.html" class="nav_about"><i></i><em>关于小牛</em></a> </li>
+    </ul>
+  </div>
+</div>
+<script src="lib/zepto/zepto.min.js"></script> 
+<script src="lib/iscroll/iscroll.js"></script> 
+<script src="lib/requirejs/require.js"></script> 
+<script>
+	require.config({
+		baseUrl:"js",
+		paths:{
+			"db":"db/db"
+		}
+	});
+	require(["mod/index"],function(mod){
+			mod.init();
+		});
+</script>
+</body>
+</html>

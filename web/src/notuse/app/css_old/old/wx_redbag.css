@@ -1,0 +1,266 @@
+@charset "utf-8";
+
+body{
+	background-color:#fff;
+}
+body.bg_black{
+	background-color:#000710;
+}
+.wx_con{
+	max-width:640px;
+	background-color:#020912;
+	margin:0 auto;
+	padding-bottom:10px;/*此处额外留点空白*/
+}
+
+.wx_top{
+	margin-bottom:0px;
+}
+.foot{
+	z-index:1001;
+}
+.wx_mask{
+	position:fixed;
+	top:0px;
+	left:0px;
+	right:0px;
+	bottom:0px;
+	z-index:2000;
+	background-color:rgba(0,0,0,0.95);
+	display:none;
+}
+.wx_rule_con{
+	max-width:640px;
+	margin:0 auto;
+}
+
+.wx_share_guide{
+	background-image:url(../../img/old/redbag/wx_share_guide_520.png);
+	background-position:top center;
+	background-repeat:no-repeat;
+	background-size:contain;
+	width:260px;
+	margin:0 auto;
+	padding-top:170px;
+}
+
+.wx_btn_iknow{
+	background-image:url(../../img/old/redbag/wx_btn_iknow_520.png);
+	background-position:top center;
+	background-repeat:no-repeat;
+	background-size:contain;
+	width:260px;
+	height:70px;
+	margin:0 auto;
+
+}
+
+.wx_redbag{
+	background-color:#000710;
+	position:relative;
+	margin:0 auto;
+	padding-bottom:32px;
+	min-height:400px;
+}
+.wx_redbag_bg{
+	position:absolute;
+	top:0px;
+	left:3%;
+	right:3%;
+	bottom:0px;
+	height:100%;	
+	background-color:#efd731;
+	z-index:1;
+	border-bottom-left-radius:20px;
+	border-bottom-right-radius:20px;
+}
+
+.wx_redbag_margin{
+	margin:0 3%;
+	position:relative;
+	z-index:3;
+
+	
+}
+
+.wx_redbag_info{
+	color:#353434;
+	background-color:#f9efad;
+	padding:4% 5%;
+	margin-bottom:12px;
+	line-height:20px;
+}
+.wx_redbag_info2 { background-color:#efd731; font-size:14px; }
+
+.wx_redbag_info i{
+		color:#d63344;
+	font-weight:bold;
+}
+
+
+.wx_redbag_title{
+	margin-bottom:10px;
+	position:relative;
+	z-index:2;
+}
+
+.wx_redbag_money_con{
+	margin:4% 6%;
+	position:relative;
+	z-index:
+}
+.wx_redbag_money_bg{
+	
+}
+.wx_redbag_money{
+	text-align:center;
+	color:#efd731;
+	position:absolute;
+	right:6%;
+	top:50%;
+	left:24%;
+	
+	font-size:60px;
+	margin-top:-40px;
+	height:80px;
+	line-height:80px;
+	font-weight:bold;
+	vertical-align:middle;
+	
+	display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: row;
+   flex-direction: row;
+   -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+	
+}
+@media screen and (min-width:480px){
+	body{
+	}
+	.wx_redbag_money{font-size:90px;}
+}
+@media screen and (max-width:320px){
+	body{
+	}
+	.wx_redbag_money{font-size:48px;}
+}
+
+
+.wx_redbag_btn{
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	background-color:#019b1e;
+	color:#fff;
+	font-size:20px;
+	margin:4% 3%;
+	margin-bottom:32px;
+	display:block;
+}
+.wx_redbag_btn:link,.wx_redbag_btn:visited,.wx_redbag_btn:hover,.wx_redbag_btn:active { color:#fff; }
+.wx_redbag_btn_red { background:#d63344; }
+.wx_redbag_btn_disable { background-color:#999; }
+.wx_redbag_btn_disabled { background-color:#999; }
+
+.wx_record{
+	position:relative;
+	z-index:200;
+	margin-top:36px;
+}
+
+.wx_record_title{
+	padding-left:4%;
+	padding-right:4%;
+	height:40px;
+	line-height:40px;
+	font-size:12px;
+	background-color:#d83c49;
+	color:#ffd823;
+}
+
+.wx_rule{
+	float:right;
+	display:inline-block;
+	padding:4px 8px;
+	margin-top:10px;
+	background-color:#efd731;
+	color:#2d3131;
+	font-size:12px;
+	line-height:14px;
+	border-radius:14px;
+}
+
+.wx_record_list{
+	margin:0% 3%;
+	background-color:#f0f1f1;
+}
+
+.wx_money{
+	float:right;
+}
+.wx_record_list{
+	padding-bottom:0px;
+}
+.wx_record_item{
+	padding:10px 12px;
+	padding-top:12px;
+	font-size:14px;
+	line-height:24px;
+	box-sizing:content-box;
+	border-bottom: solid 1px #b3b3b3;
+}
+.wx_record_item span{
+	display:inline-block;
+}
+.wx_phone{
+	color:#353434;
+}
+.wx_time{
+	color:#9f9f9f;
+}
+
+/*获取红包*/
+.wx_redbag2 { padding-bottom:12px; }
+.wx_redbag_input {
+	height:50px;
+	line-height:50px;
+	text-align:center;
+	color:#fff;
+	font-size:20px;
+	margin:4% 3%;
+	margin-bottom:16px;
+	width:auto;
+}
+.wx_redbag_input input { height:44px; line-height:44px; border:#c3af28 solid 1px; width:100%; box-sizing: border-box;-webkit-box-sizing: border-box; -moz-box-sizing: border-box; text-align:center; font-family:"Microsoft YaHei", Arial, Helvetica, sans-serif, "宋体"; }
+.wx_redbag_input input.wx_redbag_input_error { border:#F00 solid 2px; }
+.wx_redbag_input_tip { color:#ff0000; font-size:14px; text-align:center; margin-top:-10px; }
+
+.wx_share_title { height:45px; line-height:45px; color:#cda148; padding:0 5% 0 7%; border-top:#cda148 solid 1px; border-bottom:#cda148 solid 1px; font-weight:bold; margin-top:10px; }
+.wx_share_close { width:30px; height:30px; background:url(../../img/old/redbag/wx_redbag_close_60.png) left top no-repeat; background-size:30px 30px; display:block; float:right; margin:8px 0 0 0; }
+.wx_share_content { color:#ebebe8; font-size:14px; padding:7%; line-height:25px; margin-bottom:65px; }
+.wx_record_nodata { padding:40px 0; text-align:center; color:#353434; font-size:14px; margin:0 3%; background:#f0f1f1; }
+.wx_line2 { color:#909090; }
+.wx_redbag_tip { text-align:center; padding:15px 0; }
+.wx_redbag_tip h5 { margin:0; padding:0; font-size:20px; color:#d63344; margin-bottom:12px; }
+.wx_redbag_tip p { color:#353434; font-size:12px; }
+
+.wx_redbag_tip2, .wx_redbag_tip3{ padding:32px 0; margin:4% 8%; background:rgba(0,0,0,0.1); border-radius:8px; padding-left:28px; }
+.wx_redbag_tip2 { color:#353434; font-size:20px; margin-bottom:200px; }
+.wx_redbag_tip21 { color:#353434; font-size:20px; margin-bottom:20px; }
+.wx_redbag_tip3 { padding:0; margin-top:0; }
+.wx_redbag_tip3 p.wx_redbag_tip3_header { text-align:center; border-bottom:#171505 solid 3px; margin:0; font-size:20px; padding-bottom:20px; line-height:30px; }
+.wx_redbag_tip3_center { text-align:center; color:#353434; padding:20px 0; }
+.wx_redbag_tip3_center p { line-height:25px; }
+.wx_redbag_ewm { width:124px; height:124px; background:url(../../img/old/redbag/wx_ewm.gif) left top no-repeat; background-size:124px 124px; margin:0 auto; margin-top:10px; }
+
+.wx_redbag_register { background:#efd731; padding:10px 0; margin-top:30px; }
+.wx_redbag_register h4 { font-size:14px; color:#666; text-align:center; padding-top:10px; }
+.wx_redbag_register h4 strong { color:#d83c49; }
+
+.wx_share_gz { font-size:14px; line-height:20px; color:#cda148; margin-bottom:0; padding:0; margin:7%; }
+@media only screen and (max-width: 320px){
+	.wx_share_gz { height:240px; overflow-y:auto; }
+}

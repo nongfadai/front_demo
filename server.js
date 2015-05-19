@@ -86,6 +86,7 @@ function handler(req, res) { //处理所有服务请求
 
 function compileVm(req,res) {
 	var path=req.path;
+	
 	var PATH=require("path");
 	var vmRoot=PATH.resolve(__dirname,"web/m_nfd/vm");
 	console.log("vmRoot",vmRoot);
@@ -115,6 +116,8 @@ function checkVM(req, res, next) {
     if (req.path == "/" || req.path == "/index.html") {
         compileVm(req,res);
     }else if (req.path == "/bonus.html") {
+        compileVm(req,res);
+    }else if (req.path == "/project_list.html") {
         compileVm(req,res);
     } else {
         next();

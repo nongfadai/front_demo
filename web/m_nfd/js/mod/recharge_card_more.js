@@ -36,7 +36,8 @@ require(["mod/common"],function(common){
 		if(radio_value=='0'){//选择使用其他银行卡
 			var code = $("#code").val();
 			if(!code){
-				$("#reg-mobile-voice-code-con1 p").html("验证码为空.");
+				$("#reg-mobile-voice-code-con1 p").html(getWording("recharege_11"));
+				//$("#reg-mobile-voice-code-con1 p").html("验证码为空.");
 				$("#reg-mobile-voice-code-con1").show(); 
 				return;
 			}else{
@@ -85,7 +86,8 @@ require(["mod/common"],function(common){
 							}
 						},
 						error:function(){
-							$("#reg-mobile-voice-code-con1 p").html("服务器错误，请稍后重试.").show();
+							$("#reg-mobile-voice-code-con1 p").html(getWording("recharege_12")).show();
+							//$("#reg-mobile-voice-code-con1 p").html("服务器错误，请稍后重试.").show();
 							return;
 						}
 					}
@@ -126,17 +128,10 @@ require(["mod/common"],function(common){
 			return;
 		}
 		flag_gettingVoiceCode=true;
-
-		function succ(){
-			var msg="请注意接听 <i class='voice_code_phone'>400 888 1234</i> 的来电，我们将在电话中告知动态验证码！";
-			$("#reg-mobile-voice-code-msg").html(msg);
-			$("#reg-mobile-voice-code-con1").hide();/*隐藏掉出错的提示信息*/
-			flag_gettingVoiceCode=false;
-
-		}
 		
 		function succ(){
-			var msg="请注意接听 <i class='voice_code_phone'>400 888 1234</i> 的来电，我们将在电话中告知动态验证码！";
+			var msg=getWording("recharege_13");
+			//var msg="请注意接听 <i class='voice_code_phone'>400 888 1234</i> 的来电，我们将在电话中告知动态验证码！";
 			$("#reg-mobile-voice-code-msg").html(msg);
 			$("#reg-mobile-voice-code-con1").hide();/*隐藏掉出错的提示信息*/
 			flag_gettingVoiceCode=false;
@@ -144,7 +139,8 @@ require(["mod/common"],function(common){
 		}
 		
 		function fail(){
-			var msg="服务器错误，请稍后重试！";
+			var msg=getWording("recharege_14");
+			//var msg="服务器错误，请稍后重试！";
 			$("#reg-mobile-voice-code-msg").html(msg);
 			$("#reg-mobile-voice-code-con1").hide();/*隐藏掉出错的提示信息*/
 
@@ -171,7 +167,8 @@ require(["mod/common"],function(common){
 	
 	
 	function tip(dom,flag,errorMsg){
-		errorMsg=errorMsg||"服务器错误，请稍后重试"
+		errorMsg=errorMsg||getWording("recharege_15");
+		//errorMsg=errorMsg||"服务器错误，请稍后重试"
 		//console.log("show tip",dom,flag,errorMsg);
 		var errorCon=dom.parent().next();
 		var errorDom=errorCon.children("p");
@@ -231,7 +228,8 @@ require(["mod/common"],function(common){
 			},
 			error:function(){/*发送验证码失败*/
 				//console.log("发送短信验证码失败");
-				errorMsg="发送验证码失败，请稍后再试";
+				errorMsg=getWording("recharege_16");
+				//errorMsg="发送验证码失败，请稍后再试";
 				cb(send_result,errorMsg);
 				showVoiceCode();
 			}
@@ -245,7 +243,8 @@ require(["mod/common"],function(common){
 		if(count>0){
 			setTimeout(function(){
 				count--;
-				$("#captcha-code").addClass("wait").html("请等待" + count + "秒...");
+				$("#captcha-code").addClass("wait").html(getWording("recharege_17"));
+				//$("#captcha-code").addClass("wait").html("请等待" + count + "秒...");
 				countDown();
 			},1000)
 			return;
@@ -253,7 +252,8 @@ require(["mod/common"],function(common){
 		else{
 			/*循环结束*/
 			//countdown();
-			$("#captcha-code").removeClass("wait").html("获取验证码");
+			$("#captcha-code").removeClass("wait").html(getWording("recharege_18"));
+			//$("#captcha-code").removeClass("wait").html("获取验证码");
 			sendingSMSCode=false;/*可以重发验证码了*/
 		}
 	}

@@ -40,7 +40,8 @@ require(["mod/common"], function(common) {
 					var amount_val = $("#amount");
 					var txpwd_val = $("#txpwd");
 					if (!amount_val.val()) {
-						amount_val.parent().find(".msg-wrapper").html("<p class=\"auth-msg auth-error\">提现金额不能为空.</p>").show();
+						amount_val.parent().find(".msg-wrapper").html(getWording("withdraw_01")).show();
+						//amount_val.parent().find(".msg-wrapper").html("<p class=\"auth-msg auth-error\">提现金额不能为空.</p>").show();
 						return false;
 					}
 					/*if(!txpwd_val.val()){
@@ -83,12 +84,14 @@ require(["mod/common"], function(common) {
 			var cap = $("#nfd-mobile-code");
 			if (wait == 0) {
 				isSendCode = true;
-				cap.text("获取验证码");
+				cap.text(getWording("withdraw_02"));
+				// cap.text("获取验证码");
 				cap.removeClass("wait");
 				wait = 60;
 			} else {
 				cap.addClass("wait");
-				cap.text("已发送(" + wait + ")");
+				cap.text(getWording("withdraw_03",wait));
+				// cap.text("已发送(" + wait + ")");
 				wait--;
 				setTimeout(function() {
 					sendclick6();
@@ -127,10 +130,12 @@ require(["mod/common"], function(common) {
 							} else {
 								if (id == "amount") {
 									if (parseFloat(formInputValue) < parseFloat(min) || parseFloat(formInputValue) > parseFloat(max)) {
-										errMsg = "提现金额不能低于" + min + "元，且不能高于" + max / 10000 + "万元";
+										errMsg = getWording("withdraw_04",min,max/1000);
+										// errMsg = "提现金额不能低于" + min + "元，且不能高于" + max / 10000 + "万元";
 									}
 								} else if (id == "code" && formInputValue.length != 6) {
-									errMsg = "验证码长度有误";
+									errMsg = getWording("withdraw_05");
+									// errMsg = "验证码长度有误";
 								}
 							}
 							if (errMsg) {
@@ -166,14 +171,16 @@ require(["mod/common"], function(common) {
 	function getVoiceCode(){
 		/*发送一个ajax请求*/
 		function succ(){
-			var msg="请注意接听 <i class='voice_code_phone'>400 888 1234</i> 的来电，我们将在电话中告知动态验证码！";
+			var msg=getWording("withdraw_06");
+			// var msg="请注意接听 <i class='voice_code_phone'>400 888 1234</i> 的来电，我们将在电话中告知动态验证码！";
 			$("#reg-mobile-voice-code-msg").html(msg);
 			$("#reg-mobile-voice-code-con1,#nfd-mobile-code~.msg-wrapper").hide();/*隐藏掉出错的提示信息*/
 
 		}
 		
 		function fail(){
-			var msg="服务器错误，请稍后重试！";
+			var msg=getWording("withdraw_07");
+			// var msg="服务器错误，请稍后重试！";
 			$("#reg-mobile-voice-code-msg").html(msg);
 			$("#reg-mobile-voice-code-con1,#nfd-mobile-code~.msg-wrapper").hide();/*隐藏掉出错的提示信息*/
 		}

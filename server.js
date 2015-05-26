@@ -127,8 +127,13 @@ function checkVM(req, res, next) {
 
 app.all('*', checkVM);
 app.use("/handler/", handler); //服务处理程序 handler
-app.use("/", express.static(__dirname + "/web/m_nfd/")); //服务处理程序
 app.use("/web/", express.static(__dirname + "/web/")); //静态资源web
+
+app.use("/", express.static(__dirname + "/web/m_nfd/")); //服务处理程序
+
+//app.use("/", express.static(__dirname + "/m_nfd/")); //服务处理程序
+//app.use("/m_nfd/", express.static(__dirname + "/m_nfd/")); //静态资源web
+
 
 
 

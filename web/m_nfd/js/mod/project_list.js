@@ -14,27 +14,8 @@ require.config({
 //		},
 //		}
 });
-
-
 require(["mod/common"],function(common){
-	function makeTab(dom){
-		dom.find(".hd a").on("click",tabClick);
-		
-		function tabClick(e){
-			var target=$(e.target);
-			console.log(target);
-			if(target.hasClass("selected")){
-				console.log("haveClass");
-			}
-			else{/**/
-				dom.find(".selected").removeClass("selected");
-				//target.addClass("selected");
-				dom.find("."+target.attr("data-tab")).addClass("selected");
-			}
-		}
-		
-	}
-	
+
 	function loadMore(){
 		var currentPage = document.getElementById("currentPage").value;
 		currentPage = parseInt(currentPage)+1;
@@ -127,7 +108,8 @@ require(["mod/common"],function(common){
 						document.getElementById("currentPage").value = currentPage;
 					}
 				},error:function(){
-					alert("加载项目列表异常，请重试！");
+					alert(getWording("list_01"));
+					//alert("加载项目列表异常，请重试！");
 				}
 
 			});
@@ -139,8 +121,6 @@ require(["mod/common"],function(common){
 
 	function init(){
 		common.init();
-		makeTab($("#nfd-investments"));
-
 		$(".load-more").click(loadMore);
 	}
 	init();/*首页模块初始化*/

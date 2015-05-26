@@ -20,6 +20,7 @@ require(["mod/common"],function(common){
 	var submiting=false;	
 	var sendingSMSCode=false;
 	var flag_gettingVoiceCode=false;//是否已经发送语音验证码  避免用户重复点击
+	var voiceShow = true;//语音验证发送按钮显示
 		
 	function init(){
 		common.init();
@@ -69,7 +70,16 @@ require(["mod/common"],function(common){
 	/*语音验证码模块  开始*/
 	function showVoiceCode(){/*展示 发送语音验证码提示*/
 		$("#reg-mobile-voice-code-con").show();
-
+		voiceShow = false;
+	}
+	
+	function replayShowVoicCode(){
+		var msg=getWording("register_01");
+		//var msg="如果您未收到短信，请<span id=\"get_voice_code\" class=\"get_voice_code\">点此获取语音验证码</span>";
+		$("#reg-mobile-voice-code-msg").html(msg);
+		$("#reg-mobile-voice-code-con1").hide();/*隐藏掉出错的提示信息*/
+		voiceShow=false;
+		$("#get_voice_code").on("click",getVoiceCode);
 	}
 	
 	function getVoiceCode(){
@@ -80,7 +90,8 @@ require(["mod/common"],function(common){
 		flag_gettingVoiceCode=true;
 
 		function succ(){
-			var msg="请注意接听 <i class='voice_code_phone'>0755-21671435</i> 的来电，我们将在电话中告知动态验证码！";
+			var msg=getWording("register_02");
+			//var msg="请注意接听 <i class='voice_code_phone'>0755-21671435</i> 的来电，我们将在电话中告知动态验证码！";
 			$("#reg-mobile-voice-code-msg").html(msg);
 			$("#reg-mobile-voice-code-con1").hide();/*隐藏掉出错的提示信息*/
 			flag_gettingVoiceCode=false;
@@ -88,7 +99,8 @@ require(["mod/common"],function(common){
 		}
 		
 		function fail(){
-			var msg="服务器错误，请稍后重试！";
+			var msg=getWording("register_03");
+			//var msg="服务器错误，请稍后重试！";
 			$("#reg-mobile-voice-code-msg").html(msg);
 			$("#reg-mobile-voice-code-con1").hide();/*隐藏掉出错的提示信息*/
 
@@ -114,7 +126,8 @@ require(["mod/common"],function(common){
 	
 	
 	function tip(dom,flag,errorMsg){
-		errorMsg=errorMsg||"服务器错误，请稍后重试"
+		errorMsg=errorMsg||getWording("register_03");
+		//errorMsg=errorMsg||"服务器错误，请稍后重试"
 		//console.log("show tip",dom,flag,errorMsg);
 		var errorCon=dom.parent().next();
 		var errorDom=errorCon.children("p");
@@ -172,11 +185,16 @@ require(["mod/common"],function(common){
 				if(typeof(cb)=="function"){
 					cb(send_result,result.msg);
 				}
-				showVoiceCode();
+				if(voiceShow){
+					showVoiceCode();
+				}else{
+					replayShowVoicCode();
+				}
 			},
 			error:function(){/*发送验证码失败*/
 				//console.log("发送短信验证码失败");
-				errorMsg="发送验证码失败，请稍后再试";
+				errorMsg=getWording("register_04");
+				//errorMsg="发送验证码失败，请稍后再试";
 				cb(send_result,errorMsg);
 				showVoiceCode();
 			}
@@ -190,7 +208,8 @@ require(["mod/common"],function(common){
 		if(count>0){
 			setTimeout(function(){
 				count--;
-				$("#captcha-code").addClass("wait").html("请等待" + count + "秒...");
+				$("#captcha-code").addClass("wait").html(getWording("register_05",count));
+				//$("#captcha-code").addClass("wait").html("请等待" + count + "秒...");
 				countDown();
 			},1000)
 			return;
@@ -198,7 +217,8 @@ require(["mod/common"],function(common){
 		else{
 			/*循环结束*/
 			//countdown();
-			$("#captcha-code").removeClass("wait").html("获取验证码");
+			$("#captcha-code").removeClass("wait").html(getWording("register_06"));
+			//$("#captcha-code").removeClass("wait").html("获取验证码");
 			sendingSMSCode=false;/*可以重发验证码了*/
 		}
 	}
@@ -247,7 +267,8 @@ require(["mod/common"],function(common){
 		var value=$("#accountName").val();
 		//console.log("accountName",value);
 		if(!value){/*如果账户名为空*/
-			errorMsg="请输入用户名";
+			errorMsg=getWording("register_07");
+			//errorMsg="请输入用户名";
 			tip(dom,validate_result,errorMsg);
 			cb&&cb(validate_result,errorMsg);
 
@@ -255,7 +276,8 @@ require(["mod/common"],function(common){
 		else{
 			if(!/^[a-zA-Z]([\w]{5,17})$/i.test(value)){
 				/*如果6-18位的校验规则通不过*/
-				errorMsg="6-18个字符，可使用字母、数字、下划线，需以字母开头";
+				errorMsg=getWording("register_08");
+				//errorMsg="6-18个字符，可使用字母、数字、下划线，需以字母开头";
 				tip(dom,validate_result,errorMsg);
 				cb&&cb(validate_result,errorMsg);
 			}
@@ -269,7 +291,8 @@ require(["mod/common"],function(common){
 						}
 						//console.log("check result:",result.data);
 						if(result.data=="true"){/*返回结果为true 代表用户名已存在*/
-							errorMsg="用户名已存在，请输入其他用户名";
+							errorMsg=getWording("register_09");
+							//errorMsg="用户名已存在，请输入其他用户名";
 						}
 						else{
 							passCheckName=true;/*名字校验通过*/
@@ -280,7 +303,8 @@ require(["mod/common"],function(common){
 	
 					},
 					error:function(){
-						errorMsg="服务器异常，检查用户名出错";
+						errorMsg=getWording("register_10");
+						// errorMsg="服务器异常，检查用户名出错";
 						tip(dom,validate_result,errorMsg);
 						cb&&cb(validate_result,errorMsg);
 					}
@@ -300,7 +324,8 @@ require(["mod/common"],function(common){
 
 		var phoneReg = /(^[1][3][0-9]{9}$)|(^[1][4][0-9]{9}$)|(^[1][5][0-9]{9}$)|(^[1][8][0-9]{9}|17[0-9]{9}$)/;
 		if(value==""){
-			errorMsg="请输入11位手机号码";
+			errorMsg=getWording("register_11");
+			// errorMsg="请输入11位手机号码";
 			tip(dom,validate_result,errorMsg);
 			//tip(phoneDom,result,"请输入13、14、15、18或17开头的11位手机号码);
 			if(typeof(cb)=="function"){
@@ -310,7 +335,8 @@ require(["mod/common"],function(common){
 		}
 		
 		if(!phoneReg.test(value)){
-			errorMsg="请输入有效的11位手机号码";
+			errorMsg=getWording("register_12");
+			// errorMsg="请输入有效的11位手机号码";
 			tip(dom,validate_result,errorMsg);
 			//tip(phoneDom,result,"请输入13、14、15、18或17开头的11位手机号码);
 			if(typeof(cb)=="function"){
@@ -330,7 +356,8 @@ require(["mod/common"],function(common){
 						result=JSON.parse(result);
 					}
 					if(result.data=="true"){/*该手机号码已经注册*/
-						errorMsg="手机号码已经存在";
+						errorMsg=getWording("register_13");
+						// errorMsg="手机号码已经存在";
 					}
 					else{
 						validate_result=true;
@@ -344,7 +371,8 @@ require(["mod/common"],function(common){
 					}
 				},
 				error : function(){
-					errorMsg="服务器异常，检查手机号出错";
+					errorMsg=getWording("register_14");
+					// errorMsg="服务器异常，检查手机号出错";
 					tip(dom,validate_result,errorMsg);
 				}
 			});
@@ -360,10 +388,12 @@ require(["mod/common"],function(common){
 		
 		//console.log("password",value);
 		if(!value){/*如果账户名为空*/
-			errorMsg="请输入密码";
+			errorMsg=getWording("register_15");
+			// errorMsg="请输入密码";
 		}
 		else if(value.length<6||value.length>20){
-			errorMsg="6~20个字符，区分大小写";
+			errorMsg=getWording("register_16");
+			// errorMsg="6~20个字符，区分大小写";
 		}
 		else{
 			result=true;/*校验通过*/
@@ -380,7 +410,8 @@ require(["mod/common"],function(common){
 		
 		//console.log("password",value);
 		if(!value){/*如果账户名为空*/
-			errorMsg="请输入验证码";
+			errorMsg=getWording("register_17");
+			// errorMsg="请输入验证码";
 		}
 		else{
 			result=true;/*校验通过*/
@@ -398,7 +429,8 @@ require(["mod/common"],function(common){
 		//alert("checked:"+value);
 		//console.log("protocol",value);
 		if(!value){/*如果账户名为空*/
-			errorMsg="请同意用户协议";
+			errorMsg=getWording("register_18");
+			// errorMsg="请同意用户协议";
 		}
 		else{
 			result=true;/*校验通过*/
@@ -408,11 +440,13 @@ require(["mod/common"],function(common){
 	}
 	
 	function resetBtn(){
-		$("#nfd-submit-btn").removeClass("disable").html("注册");
+		$("#nfd-submit-btn").removeClass("disable").html(getWording("register_19"));
+		// $("#nfd-submit-btn").removeClass("disable").html("注册");
 	}
 	
 	function submitError(){
-		$("#nfd-submit-btn").addClass("disable").html("注册信息填写有误");
+		$("#nfd-submit-btn").addClass("disable").html(getWording("register_20"));
+		// $("#nfd-submit-btn").addClass("disable").html("注册信息填写有误");
 	}
 	
 	function doSubmit(){/*执行表单提交事件*/
@@ -422,7 +456,8 @@ require(["mod/common"],function(common){
 		var errorMsg="";
 
 		if($("#mobile").val()==""){
-			errorMsg="请输入11位手机号";
+			errorMsg=getWording("register_11");
+			// errorMsg="请输入11位手机号";
 			tip($("#mobile"),false,errorMsg);
 			
 			submitError();
@@ -464,7 +499,8 @@ require(["mod/common"],function(common){
 			var password = document.getElementById('password').value;
 			document.getElementById('password').value = hex_md5(password);
 			//if(passCheckName && passCheckPhone){
-			$("#nfd-submit-btn").html("注册中...");
+			$("#nfd-submit-btn").html(getWording("register_21"));
+			//$("#nfd-submit-btn").html("注册中...");
 			document.getElementById("nfd-user-reg-form").submit();	
 		}
 	}

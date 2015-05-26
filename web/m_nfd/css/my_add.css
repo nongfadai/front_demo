@@ -37,7 +37,8 @@
 	padding-top:48px!important;
 }
 #nfd-operate-completed .info{
-	height:80px!important;
+	min-height:40px!important;
+	margin-bottom:36px;
 }
 #nfd-operate-completed .btn-block {
 	position:relative!important;
@@ -452,9 +453,17 @@
 .table_horizontal tr td:first-child{
 	line-height:30px;
 	color:#969696;
-	text-align:left;
-	padding-left:10px;
-	width:100px;
+	text-align:right;
+	padding-right:12px;
+	width:60px;
+	
+}
+.table_horizontal2 tr td:first-child{
+	line-height:30px;
+	color:#969696;
+	text-align:right;
+	padding-left:12px;
+	width:60px;
 	
 }
 
@@ -707,4 +716,107 @@
 
 .btn-primary.disable{
 	background-color:#666;
+}
+
+.bg_fff{
+	background-color:#fff;
+}
+
+
+.my_tab{
+}
+
+.my_tab3{
+	font-size:0px;
+}
+
+.my_tab3>a{
+	font-size:14px;
+	width:33%;
+	display:inline-block;
+	box-sizing:border-box;
+	padding-left:12px;
+	padding-right:12px;
+	background-color:#edecf1;
+}
+
+.my_tab2{
+	font-size:0px;
+}
+.my_tab2>a{
+	font-size:14px;
+	width:50%;
+	display:inline-block;
+	box-sizing:border-box;
+	padding-left:12px;
+	padding-right:12px;
+	background-color:#edecf1;
+}
+.my_tab2>a span{
+	display:block;
+	text-align:center;
+	line-height:32px;
+}
+.my_tab3>a:nth-child(2){
+	width:34%;
+}
+.my_tab>a.selected{
+	background-color:#fff;
+}
+.my_tab>a span{
+	display:block;
+	text-align:center;
+	line-height:32px;
+}
+
+.my_tab>a.selected span{
+	color:#43b2fe;
+	border-bottom:1px solid #43b2fe;
+}
+
+
+
+/*flex box layout*/
+.layout_flex {
+	display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+	display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+	display: -ms-flexbox;      /* TWEENER - IE 10 */
+	display: -webkit-flex;     /* NEW - Chrome */
+	display: flex;
+	-webkit-flex-flow: row wrap;
+	flex-flow: row wrap;
+	-webkit-box-pack: justify;
+	-moz-box-pack: justify;
+	-ms-flex-pack: justify;
+	-webkit-justify-content: space-between;
+	justify-content: space-between;
+}
+
+.layout_col{
+	border-right:1px solid #ddd;
+	flex:1;
+	text-align:center;
+	padding:0 6px;
+}
+.layout_flex .layout_col:first-child{
+	padding-left:0px;
+}
+
+.layout_flex .layout_col:last-child{
+	border-right:none;
+	padding-right:0px;
+}
+
+
+/*我的投资*/
+.a_project_u{
+	color:#28a8ff;
+	padding-right:24px;
+	background-image:url(../img/project_status/jiantou.png);
+	background-position:right center;
+	background-repeat:no-repeat;
+	background-size:22px 22px;
+}
+.a_project_u:link,.a_project_u:visited,.a_project_u:hover,.a_project_u:active{
+	color:#28a8ff;
 }

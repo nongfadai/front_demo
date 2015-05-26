@@ -35,26 +35,31 @@ require(["mod/common"], function(common) {
 	function genData(single_max, day_max, month_max) {
 		g_day_max=day_max;
 		g_month_max=month_max;
-		
+		g_single_max = single_max;
 		g_day_rest=day_max-g_day_amt;
 		if(g_month_max){
 			g_month_rest=g_month_max-g_month_amt;
 		}
+		console.log("g_day_max:"+g_day_max+",g_month_max:"+g_month_max);
 	}
 
 	function validateAmount(amt) {
 		var result = "";
 		if (amt < g_single_min) {
-			result = "单笔充值金额不能低于" + money2String(g_single_min) + "";
+			result = getWording("recharge_01",money2String(g_single_min));
+			//result = "单笔充值金额不能低于" + money2String(g_single_min) + "";
 		}
 		if (!result && amt > g_single_max) {
-			result = "单笔充值金额不能高于" + money2String(g_single_max) + "";
+			result = getWording("recharge_02",money2String(g_single_max));
+			//result = "单笔充值金额不能高于" + money2String(g_single_max) + "";
 		}
 		if (!result && amt > g_day_rest) {
-			result = "您今天已充值" + money2String(g_day_amt) + "，剩余可充金额" + money2String(g_day_rest);
+			result = getWording("recharge_03",money2String(g_day_amt),money2String(g_day_rest));
+			//result = "您今天已充值" + money2String(g_day_amt) + "，剩余可充金额" + money2String(g_day_rest);
 		}
 		if (!result &&g_month_rest&& amt > g_month_rest) {
-			result = "您本月已充值" + money2String(g_month_amt) + "，剩余可充金额" + money2String(g_month_rest);
+			result = getWording("recharge_04",money2String(g_day_amt),money2String(g_day_rest));
+			//result = "您本月已充值" + money2String(g_month_amt) + "，剩余可充金额" + money2String(g_month_rest);
 		}
 
 		return result;
@@ -125,7 +130,7 @@ require(["mod/common"], function(common) {
 						datai;
 					for (var i = 0; i < len; i++) {
 						datai = data[i];
-						bankHtml.push('<input type="hidden" id="' + datai['F02'] + '" value="' + datai['F06'] + '"/>');
+						bankHtml.push('<input type="hidden" id="' + datai['F02'] + '" value="' + datai['F06'] + '" day="' + datai['F07'] + '" month="' + datai['F08'] + '"/>');
 					}
 					$("#nfd-recharge-c").after(bankHtml.join(''));
 					var bank_code = $("#bank_code").val();
@@ -134,15 +139,15 @@ require(["mod/common"], function(common) {
 						var bk_value = parseFloat(bankValue);
 						var dr_value = parseFloat(datai['F07']);
 						var dy_value = parseFloat(datai['F08']);
-
-						genData(bk_value, dr_value);
+						genData(bk_value, dr_value,dy_value);
 
 						var money_dw = "元";
 						if (bk_value > 10000) {
 							bk_value = bk_value / 10000;
 							money_dw = "万元";
 						}
-						$("#singleRecharge").html("&nbsp;&nbsp;单笔限额" + bk_value + money_dw + ",当日限额" + (dr_value / 10000) + "万元，<br>&nbsp;&nbsp;通过电脑或线下充值方式无上限。");
+						$("#singleRecharge").html(getWording("recharge_05",bk_value,money_dw,dr_value/10000));
+						//$("#singleRecharge").html("&nbsp;&nbsp;单笔限额" + bk_value + money_dw + ",当日限额" + (dr_value / 10000) + "万元，<br>&nbsp;&nbsp;通过电脑或线下充值方式无上限。");
 					}
 				}
 			}

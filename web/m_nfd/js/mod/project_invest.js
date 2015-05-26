@@ -45,7 +45,8 @@ require(["mod/common"],function(common){
 			var qx = $("#qx").val();
 			var hkfs = $("#hkfs").val();
 			console.log("amount:"+val+",nsy:"+nsy+",qx:"+qx+",hkfs:"+hkfs);
-			result="预期收益:<i>"+beginJs(val,nsy,qx,hkfs)+"</i>元";
+			result=getWording("invest_01",beginJs(val,nsy,qx,hkfs));
+			//result="预期收益:<i>"+beginJs(val,nsy,qx,hkfs)+"</i>元";
 		}
 		else{
 		}
@@ -56,32 +57,57 @@ require(["mod/common"],function(common){
 		var result="";
 		var fx_mount=$("#fx_mount");
 		fx_mount.val('');
-		var hongbao = $("#hongbao").val();
-		if(hongbao){
+		var hongbao51 = $("#hongbao51").val();
+		var hongbao515 = $("#hongbao515").val();
+		if(hongbao51||hongbao515){
 			if(val>0){
-				var hbao = hongbao.substring(0,hongbao.lastIndexOf(",")).split(",");
-				var hqhongbaotj = $("#hqhongbaotj").val();
-				var fd = hqhongbaotj.split("#");
-				var g_myBonus=[];
-				var index = 0;
-				for(var j=0;j<fd.length;j++){
-					var fdv = fd[j].split("-");
-					if(hbao.indexOf(fdv[1])!=-1){
-						g_myBonus[index] = {invest:fdv[0],bonus:fdv[1]};
-						index++;
+				var hbao51 = hongbao51?hongbao51.substring(0,hongbao51.lastIndexOf(",")).split(","):null;
+				var hbao515 = hongbao515?hongbao515.substring(0,hongbao515.lastIndexOf(",")).split(","):null;
+				var hqhongbaotj51 = $("#hqhongbaotj51").val();
+				var hqhongbaotj515 = $("#hqhongbaotj515").val();
+				var fd51 = hqhongbaotj51.split("#");
+				var fd515 = hqhongbaotj515.split("#");
+				var g_myBonus51=[],g_myBonus515=[];
+				var index = 0,index_i = 0;
+				var bonus = null;
+				if(hbao51){
+					for(var j=0;j<fd51.length;j++){
+						var fdv = fd51[j].split("-");
+						if(hbao51.indexOf(fdv[1])!=-1){
+							g_myBonus51[index] = {invest:fdv[0],bonus:fdv[1]};
+							index++;
+						}
+					}
+					var obj;
+					for(var i=0;i<g_myBonus51.length;i++){
+						obj=g_myBonus51[i];
+						if(parseFloat(val)>=parseFloat(obj.invest)){
+							bonus=obj.bonus;
+							break;
+						}
 					}
 				}
-				var obj;
-				for(var i=0;i<g_myBonus.length;i++){
-					obj=g_myBonus[i];
-					if(parseFloat(val)>=parseFloat(obj.invest)){
-						bonus=obj.bonus;
-						break;
+				if(!bonus&&hbao515){
+					for(var h=0;h<fd515.length;h++){
+						var fdv = fd515[h].split("-");
+						if(hbao515.indexOf(fdv[1])!=-1){
+							g_myBonus515[index_i] = {invest:fdv[0],bonus:fdv[1]};
+							index_i++;
+						}
+					}
+					var obj;
+					for(var i=0;i<g_myBonus515.length;i++){
+						obj=g_myBonus515[i];
+						if(parseFloat(val)>=parseFloat(obj.invest)){
+							bonus=obj.bonus;
+							break;
+						}
 					}
 				}
-				if(i<g_myBonus.length&&obj){/*匹配上了红包*/
-					result="投资返现:<i>"+obj.bonus+"元</i>";
-					fx_mount.val(obj.bonus);
+				if(bonus){/*匹配上了红包*/
+					result=getWording("invest_02",bonus);
+					//result="投资返现:<i>"+bonus+"元</i>";
+					fx_mount.val(bonus);
 				}
 			}
 			else{
@@ -93,6 +119,7 @@ require(["mod/common"],function(common){
 	
 	function validateInvest(){
 		var val=$("#amount").val()-0;/*进行校验*/
+		var stepVal=$("#step_amount").val()-0;
 		var minVal=$("#min_amount").val()-0;
 		var maxVal=$("#availableAmount").val()-0;
 		var myVal=$("#my_amount").val()-0;
@@ -101,17 +128,20 @@ require(["mod/common"],function(common){
 		var errorMsg="";
 		if(val<minVal){
 			validata_result=false;
-			errorMsg="投资金额不能小于"+minVal+"元";
+			errorMsg=getWording("invest_03",minVal);
+			//errorMsg="投资金额不能小于"+minVal+"元";
 		}
 		
-		if(val>myVal){
+		if(stepVal&&val%stepVal!=0){
 			validata_result=false;
-			errorMsg="您的余额不足,请充值后再投资";
+			//errorMsg=getWording("invest_04");
+			errorMsg="投资金额须为"+stepVal+"整数倍";
 		}
 		
 		if(val>maxVal){
 			validata_result=false;
-			errorMsg="投资金额不能大于"+maxVal+"元";
+			errorMsg=getWording("invest_05",maxVal);
+			//errorMsg="投资金额不能大于"+maxVal+"元";
 		}
 		
 		tip($("#invest_error_con"),validata_result,errorMsg);
@@ -119,7 +149,8 @@ require(["mod/common"],function(common){
 	}
 	
 	function tip(dom,flag,errorMsg){
-		errorMsg=errorMsg||"服务器错误，请稍后重试"
+		errorMsg=errorMsg||getWording("invest_06");
+		//errorMsg=errorMsg||"服务器错误，请稍后重试"
 		console.log("show tip",dom,flag,errorMsg);
 		var errorCon=dom;
 		var errorDom=errorCon.children("p");

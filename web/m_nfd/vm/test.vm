@@ -1,0 +1,15 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+data.a_id:$data.a_id
+data.a_name:$data.a_name
+data.a_list.length:$data.a_list.size()
+
+
+</body>
+</html>
